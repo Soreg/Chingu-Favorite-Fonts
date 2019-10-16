@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ContentWrapper from './components/ContentWrapper.jsx';
 import Catalog from './components/catalog/catalog.jsx';
 import Featured from './components/featured/featured.jsx';
 import Articles from './components/articles/articles.jsx';
@@ -15,16 +16,16 @@ export default class Router extends Component {
             <BrowserRouter>
                 <Switch>
                     <Route path="/featured">
-                        <Featured />
+                        <ContentWrapper children={<Featured />} />
                     </Route>
                     <Route path="/articles">
-                        <Articles />
+                        <ContentWrapper children={<Articles />} />
                     </Route>
                     <Route path="/about">
-                        <About />
+                        <ContentWrapper children={<About />} />
                     </Route>
                     <Route path="/">
-                        <Catalog />
+                        <ContentWrapper children={<Catalog />} />
                     </Route>
                 </Switch>
             </BrowserRouter>            
