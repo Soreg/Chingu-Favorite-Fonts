@@ -27,6 +27,7 @@ export const NavSampleTextInput = styled(NavSearchInput)`
 export const NavSelect = styled.select`
     align-self: stretch;
     border: none;
+    outline: 0;
     padding-left: 10px;
 `;
 
