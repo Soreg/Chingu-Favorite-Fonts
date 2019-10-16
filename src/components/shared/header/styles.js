@@ -6,7 +6,7 @@ import { getColor } from '../../../frontend-config';
 export const Wrapper = styled.div`
     width: 100%;
     padding: 20px 0;
-    border-bottom: 1px solid ${getColor('darkgrey')};
+    border-bottom: 1px solid ${getColor('grey')};
     color: ${getColor('darkgrey')};
 `;
 
