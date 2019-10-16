@@ -33,6 +33,8 @@ export const NavSelect = styled.select`
 export const NavReset = styled.div`
     display: flex;
     align-self: stretch;
+    flex: 1;
+    justify-content: flex-end;
     padding-left: 10px;
     margin-left: 10px;
     border-left: 1px solid ${getColor('darkgrey')};
