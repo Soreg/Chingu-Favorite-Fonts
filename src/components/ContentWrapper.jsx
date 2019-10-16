@@ -1,10 +1,15 @@
 import React from "react";
+import styled from 'styled-components';
+
+export const Container = styled.div`
+
+`;
 
 const ContentWrapper = props => {
     return (
-        <div>
+        <Container>
             {props.children}
-        </div>
+        </Container>
     )
 }
 
