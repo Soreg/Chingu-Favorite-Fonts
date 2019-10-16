@@ -5,7 +5,7 @@ const colors = {
 }
 
 const sizes = {
-    maxWidth: '1700px'
+    maxWidth: '1500px'
 }
 
 const getColor = color => {

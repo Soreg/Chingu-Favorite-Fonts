@@ -9,6 +9,7 @@ export const Container = styled.div`
 export const PageWrapper = styled.div`
     max-width: ${getPageSize('maxWidth')};
     margin: 0 auto;
+    padding: 0 80px;
 `;
 
 const ContentWrapper = props => {
