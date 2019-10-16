@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { NavLink } from "react-router-dom";
-import { getColor, getPageSize } from '../../../frontend-config';
+import { getColor } from '../../../frontend-config';
 
 
 export const Wrapper = styled.div`
     width: 100%;
     padding: 20px 0;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid ${getColor('darkgrey')};
     color: ${getColor('darkgrey')};
 `;
 
