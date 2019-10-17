@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { debounce } from 'debounce';
 import Navbar from './navbar.jsx';
 import FontCard from './FontCard.jsx';
 import { CardsList } from "./styles.js";
@@ -23,6 +24,7 @@ export default class Catalog extends Component {
         this.onFontSizeChange = this.onFontSizeChange.bind(this);
         this.onReset = this.onReset.bind(this);
         this.onScroll = this.onScroll.bind(this);
+        this.doSearch = debounce(this.doSearch.bind(this), 300)
     }
 
     componentDidUpdate(prevProps) {
@@ -64,6 +66,8 @@ export default class Catalog extends Component {
 
         this.setState({
             searchString: value
+        }, () => {
+            this.doSearch(value.toLowerCase());
         })
     }
     
@@ -86,6 +90,24 @@ export default class Catalog extends Component {
 
     onReset() {
         this.setState(INITIAL_STATE)
+    }
+
+    doSearch(value) {
+        const { fontsAmount } = this.state;
+        const { fonts } = this.props;
+
+        if (value) {
+            const filtered = fonts.filter(font => font.family.toLowerCase().includes(value))
+            this.setState({
+                fonts: filtered
+            })
+        } else {
+            // Reset
+            const original = fonts.slice(0, fontsAmount);
+            this.setState({
+                fonts: original
+            })
+        }
     }
 
     render() {
