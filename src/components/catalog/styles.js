@@ -55,11 +55,12 @@ export const CardsList = styled.div`
 
 // Card
 export const CardWrapper = styled.div`
+    align-self: stretch;
     box-sizing: border-box;
     width: 25%;
     padding: 0 25px;
     margin-bottom: 30px;
-    height: 250px;
+    min-height: 250px;
 `;
 
 export const CardInnerWrapper = styled.div`
@@ -77,12 +78,13 @@ export const CardHeadline = styled.div`
 `;
 
 export const CardPreviewText = styled.p`
+    position: relative;
     font-size: ${props => props.size ? props.size : '32px'};
+    font-family: ${props => props.family}, Arial, Sans-Serif;
+    word-break: break-word;
 
     @font-face {
         font-family: ${props => props.family};
         src: url(${props => props.url});
     }
-
-    font-family: ${props => props.family}, Arial, Sans-Serif;
 `;
