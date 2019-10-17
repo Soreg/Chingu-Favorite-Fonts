@@ -46,4 +46,35 @@ export const NavReset = styled.div`
     }
 `;
 
-// Cards
+// Cards list
+export const CardsList = styled.div`
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+`;
+
+// Card
+export const CardWrapper = styled.div`
+    box-sizing: border-box;
+    width: 25%;
+    padding: 0 25px;
+    margin-bottom: 30px;
+`;
+
+export const CardInnerWrapper = styled.div`
+    border-top: 1px solid #000;
+`;
+
+export const CardTopContainer = styled.div`
+    padding: 8px 0;
+    margin-bottom: 20px;
+`;
+
+export const CardHeadline = styled.div`
+    font-weight: bold;
+    font-size: 14px;
+`;
+
+export const CardPreviewText = styled.p`
+    font-size: 32px;
+`;

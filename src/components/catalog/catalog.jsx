@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import Navbar from './navbar.jsx';
+import FontCard from './FontCard.jsx';
+import { CardsList } from "./styles.js";
 
 const INITIAL_STATE = {
     searchString: '',
-    previewString: '',
-    fontSize: '15px'
+    previewString: null,
+    previewText: "Lorem ipsum...",
+    fontSize: '32px'
 }
 
 
@@ -32,7 +35,8 @@ export default class Catalog extends Component {
         const { value } = e.target;
 
         this.setState({
-            previewString: value
+            previewString: value,
+            previewText: value
         })
     }
     
@@ -49,8 +53,8 @@ export default class Catalog extends Component {
     }
 
     render() {
-        const { searchString, previewString, fontSize } = this.state;
-        console.log(this.props);
+        const { searchString, previewString, fontSize, previewText } = this.state;
+        const { fonts } = this.props;
         return (
             <>
                 <Navbar
@@ -62,7 +66,11 @@ export default class Catalog extends Component {
                     onFontSizeChange={this.onFontSizeChange}
                     onReset={this.onReset}
                 />
-                <div>Catalog list</div>
+                <CardsList>
+                    {fonts && fonts.map(font => (
+                    <FontCard key={font.family} font={font} text={previewText} />
+                    ))}
+                </CardsList>
             </>
         )
     }
