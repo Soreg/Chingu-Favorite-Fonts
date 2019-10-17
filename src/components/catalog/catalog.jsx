@@ -19,6 +19,8 @@ export default class Catalog extends Component {
 
         this.state = INITIAL_STATE;
 
+        this.fontsAmountPerTime = 24;
+
         this.onSearchTextChange = this.onSearchTextChange.bind(this);
         this.onPreviewTextChange = this.onPreviewTextChange.bind(this);
         this.onFontSizeChange = this.onFontSizeChange.bind(this);
@@ -51,8 +53,8 @@ export default class Catalog extends Component {
     getNextFonts() {
         const { fontsAmount } = this.state;
         const { fonts } = this.props;
-        
-        const newFontsAmount = fontsAmount + 24;
+
+        const newFontsAmount = fontsAmount + this.fontsAmountPerTime;
         const loadedFonts = fonts.slice(0, newFontsAmount);
 
         this.setState({
@@ -89,11 +91,16 @@ export default class Catalog extends Component {
     }
 
     onReset() {
-        this.setState(INITIAL_STATE)
+        const { fonts } = this.props;
+        const newFonts = fonts.slice(0, this.fontsAmountPerTime);
+        
+        this.setState({
+            ...INITIAL_STATE,
+            fonts: newFonts
+        })
     }
 
     doSearch(value) {
-        const { fontsAmount } = this.state;
         const { fonts } = this.props;
 
         if (value) {
@@ -103,7 +110,7 @@ export default class Catalog extends Component {
             })
         } else {
             // Reset
-            const original = fonts.slice(0, fontsAmount);
+            const original = fonts.slice(0, this.fontsAmountPerTime);
             this.setState({
                 fonts: original
             })
