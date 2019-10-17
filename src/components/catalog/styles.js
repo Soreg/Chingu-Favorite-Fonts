@@ -7,7 +7,7 @@ export const NavbarWrapper = styled.div`
     align-items: center;
     border: 1px solid ${getColor('grey')};
     border-radius: 20px;
-    margin: 20px auto;
+    margin: 20px auto 40px;
     padding: 0 30px;
 `;
 
@@ -46,4 +46,36 @@ export const NavReset = styled.div`
     }
 `;
 
-// Cards
+// Cards list
+export const CardsList = styled.div`
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+`;
+
+// Card
+export const CardWrapper = styled.div`
+    box-sizing: border-box;
+    width: 25%;
+    padding: 0 25px;
+    margin-bottom: 30px;
+    height: 250px;
+`;
+
+export const CardInnerWrapper = styled.div`
+    border-top: 1px solid #000;
+`;
+
+export const CardTopContainer = styled.div`
+    padding: 8px 0;
+    margin-bottom: 20px;
+`;
+
+export const CardHeadline = styled.div`
+    font-weight: bold;
+    font-size: 16px;
+`;
+
+export const CardPreviewText = styled.p`
+    font-size: ${props => props.size ? props.size : '10px'};
+`;
