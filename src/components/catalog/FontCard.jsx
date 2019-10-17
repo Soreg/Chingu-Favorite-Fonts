@@ -4,6 +4,8 @@ import { CardWrapper, CardInnerWrapper, CardTopContainer, CardHeadline, CardPrev
 const FontCard = props => {
     const { font, text, fontSize } = props;
 
+    const url = font.files.regular && font.files.regular.replace("http", "https");
+
     return (
         <CardWrapper>
             <CardInnerWrapper>
@@ -14,7 +16,7 @@ const FontCard = props => {
                 <CardPreviewText
                     size={fontSize}
                     family={font.family}
-                    url={font.files.regular}
+                    url={url}
                     type={font.category}
                 >
                     {text ? text : "She stared through the window at the stars"}
