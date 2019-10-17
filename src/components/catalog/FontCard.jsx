@@ -3,6 +3,7 @@ import { CardWrapper, CardInnerWrapper, CardTopContainer, CardHeadline, CardPrev
 
 const FontCard = props => {
     const { font, text, fontSize } = props;
+
     return (
         <CardWrapper>
             <CardInnerWrapper>
@@ -10,7 +11,14 @@ const FontCard = props => {
                     <CardHeadline>{font.family}</CardHeadline>
                 </CardTopContainer>
 
-                <CardPreviewText size={fontSize}>{text}</CardPreviewText>
+                <CardPreviewText
+                    size={fontSize}
+                    family={font.family}
+                    url={font.files.regular}
+                    type={font.category}
+                >
+                    {text}
+                </CardPreviewText>
             </CardInnerWrapper>
         </CardWrapper>
     )

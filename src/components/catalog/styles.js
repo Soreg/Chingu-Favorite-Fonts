@@ -77,5 +77,12 @@ export const CardHeadline = styled.div`
 `;
 
 export const CardPreviewText = styled.p`
-    font-size: ${props => props.size ? props.size : '10px'};
+    font-size: ${props => props.size ? props.size : '32px'};
+
+    @font-face {
+        font-family: ${props => props.family};
+        src: url(${props => props.url});
+    }
+
+    font-family: ${props => props.family}, Arial, Sans-Serif;
 `;
