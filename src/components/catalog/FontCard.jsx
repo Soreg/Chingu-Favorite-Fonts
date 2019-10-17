@@ -17,7 +17,7 @@ const FontCard = props => {
                     url={font.files.regular}
                     type={font.category}
                 >
-                    {text}
+                    {text ? text : "She stared through the window at the stars"}
                 </CardPreviewText>
             </CardInnerWrapper>
         </CardWrapper>
