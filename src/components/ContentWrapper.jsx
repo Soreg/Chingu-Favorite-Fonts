@@ -1,5 +1,6 @@
 import React from "react";
 import Header from './shared/header/header.jsx';
+import Footer from './shared/footer/footer.jsx';
 import styled from 'styled-components';
 import { getPageSize } from '../frontend-config';
 
@@ -19,6 +20,7 @@ const ContentWrapper = props => {
             <PageWrapper>
                 {props.children}
             </PageWrapper>
+            <Footer />
         </Container>
     )
 }
