@@ -50,6 +50,7 @@ export default class Catalog extends Component {
 
     render() {
         const { searchString, previewString, fontSize } = this.state;
+        console.log(this.props);
         return (
             <>
                 <Navbar
