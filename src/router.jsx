@@ -11,7 +11,29 @@ import {
   } from "react-router-dom";
 
 export default class Router extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            catalogFonts: null
+        }
+    }
+
+    componentDidMount() {
+        const catalogUrl = `https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=AIzaSyDLMyTQSwKsXcKV8l7VBnZS1DQcyZ985d0`
+
+        fetch(catalogUrl)
+            .then(response => response.json())
+            .then(result => {
+                this.setState({
+                    catalogFonts: result.items
+                })
+            })
+    }
+
     render() {
+        const { catalogFonts } = this.state;
+
         return (
             <BrowserRouter>
                 <Switch>
@@ -25,7 +47,7 @@ export default class Router extends Component {
                         <ContentWrapper children={<About />} />
                     </Route>
                     <Route path="/">
-                        <ContentWrapper children={<Catalog />} />
+                        <ContentWrapper children={<Catalog fonts={catalogFonts}  />} />
                     </Route>
                 </Switch>
             </BrowserRouter>            
