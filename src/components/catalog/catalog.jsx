@@ -8,7 +8,6 @@ const INITIAL_STATE = {
     fontsAmount: 0,
     searchString: '',
     previewString: '',
-    previewText: "She stared through the window at the stars.",
     fontSize: '32px'
 }
 
@@ -84,8 +83,7 @@ export default class Catalog extends Component {
         const { value } = e.target;
 
         this.setState({
-            previewString: value,
-            previewText: value
+            previewString: value
         })
     }
     
@@ -127,7 +125,7 @@ export default class Catalog extends Component {
     }
 
     render() {
-        const { searchString, previewString, fontSize, previewText, fonts } = this.state;
+        const { searchString, previewString, fontSize, fonts } = this.state;
         return (
             <>
                 <Navbar
@@ -141,7 +139,7 @@ export default class Catalog extends Component {
                 />
                 <CardsList>
                     {fonts && fonts.map(font => (
-                        <FontCard key={font.family} font={font} text={previewText} fontSize={fontSize} />
+                        <FontCard key={font.family} font={font} text={previewString} fontSize={fontSize} />
                     ))}
                 </CardsList>
             </>
