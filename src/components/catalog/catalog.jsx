@@ -5,6 +5,7 @@ import { CardsList } from "./styles.js";
 
 const INITIAL_STATE = {
     fonts: null,
+    fontsAmount: 0,
     searchString: '',
     previewString: '',
     previewText: "She stared through the window at the stars.",
@@ -22,16 +23,41 @@ export default class Catalog extends Component {
         this.onPreviewTextChange = this.onPreviewTextChange.bind(this);
         this.onFontSizeChange = this.onFontSizeChange.bind(this);
         this.onReset = this.onReset.bind(this);
+        this.onScroll = this.onScroll.bind(this);
     }
 
     componentDidUpdate(prevProps) {
         const { fonts } = this.props;
         if (fonts && prevProps.fonts === null) {
-            const initialFonts = fonts.slice(0, 20);
-            this.setState({
-                fonts: initialFonts
-            })
+            this.getNextFonts();
+            window.addEventListener('scroll', this.onScroll, true);
         }
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll);
+    }
+
+    onScroll() {
+        const viewportHeight = window.pageYOffset + window.innerHeight
+        const bodyHeight = document.getElementById('app').offsetHeight;
+
+        if(viewportHeight >= bodyHeight - 300) {
+            this.getNextFonts();
+        }
+    }
+
+    getNextFonts() {
+        const { fontsAmount } = this.state;
+        const { fonts } = this.props;
+        
+        const newFontsAmount = fontsAmount + 24;
+        const loadedFonts = fonts.slice(0, newFontsAmount);
+
+        this.setState({
+            fonts: loadedFonts,
+            fontsAmount: newFontsAmount
+        })
     }
 
     onSearchTextChange(e) {
