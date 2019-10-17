@@ -7,7 +7,7 @@ export const NavbarWrapper = styled.div`
     align-items: center;
     border: 1px solid ${getColor('grey')};
     border-radius: 20px;
-    margin: 20px auto;
+    margin: 20px auto 40px;
     padding: 0 30px;
 `;
 
@@ -59,6 +59,7 @@ export const CardWrapper = styled.div`
     width: 25%;
     padding: 0 25px;
     margin-bottom: 30px;
+    height: 250px;
 `;
 
 export const CardInnerWrapper = styled.div`
@@ -72,7 +73,7 @@ export const CardTopContainer = styled.div`
 
 export const CardHeadline = styled.div`
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
 `;
 
 export const CardPreviewText = styled.p`

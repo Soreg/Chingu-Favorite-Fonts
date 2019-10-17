@@ -4,9 +4,10 @@ import FontCard from './FontCard.jsx';
 import { CardsList } from "./styles.js";
 
 const INITIAL_STATE = {
+    fonts: null,
     searchString: '',
-    previewString: null,
-    previewText: "Lorem ipsum...",
+    previewString: '',
+    previewText: "She stared through the window at the stars.",
     fontSize: '32px'
 }
 
@@ -21,6 +22,16 @@ export default class Catalog extends Component {
         this.onPreviewTextChange = this.onPreviewTextChange.bind(this);
         this.onFontSizeChange = this.onFontSizeChange.bind(this);
         this.onReset = this.onReset.bind(this);
+    }
+
+    componentDidUpdate(prevProps) {
+        const { fonts } = this.props;
+        if (fonts && prevProps.fonts === null) {
+            const initialFonts = fonts.slice(0, 20);
+            this.setState({
+                fonts: initialFonts
+            })
+        }
     }
 
     onSearchTextChange(e) {
@@ -53,8 +64,7 @@ export default class Catalog extends Component {
     }
 
     render() {
-        const { searchString, previewString, fontSize, previewText } = this.state;
-        const { fonts } = this.props;
+        const { searchString, previewString, fontSize, previewText, fonts } = this.state;
         return (
             <>
                 <Navbar
@@ -68,7 +78,7 @@ export default class Catalog extends Component {
                 />
                 <CardsList>
                     {fonts && fonts.map(font => (
-                    <FontCard key={font.family} font={font} text={previewText} />
+                        <FontCard key={font.family} font={font} text={previewText} />
                     ))}
                 </CardsList>
             </>
