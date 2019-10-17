@@ -45,17 +45,24 @@ export default class Catalog extends Component {
         const viewportHeight = window.pageYOffset + window.innerHeight
         const bodyHeight = document.getElementById('app').offsetHeight;
 
-        if(viewportHeight >= bodyHeight - 300) {
+        if(viewportHeight >= bodyHeight - 400) {
             this.getNextFonts();
         }
     }
 
     getNextFonts() {
-        const { fontsAmount } = this.state;
+        const { fontsAmount, searchString } = this.state;
         const { fonts } = this.props;
 
         const newFontsAmount = fontsAmount + this.fontsAmountPerTime;
-        const loadedFonts = fonts.slice(0, newFontsAmount);
+        let loadedFonts = [];
+        if (searchString) {
+            loadedFonts = fonts
+                .filter(font => font.family.toLowerCase().includes(searchString.toLowerCase()))
+                .slice(0, newFontsAmount);
+        } else {
+            loadedFonts = fonts.slice(0, newFontsAmount)
+        }
 
         this.setState({
             fonts: loadedFonts,
@@ -104,7 +111,9 @@ export default class Catalog extends Component {
         const { fonts } = this.props;
 
         if (value) {
-            const filtered = fonts.filter(font => font.family.toLowerCase().includes(value))
+            const filtered = fonts
+                .filter(font => font.family.toLowerCase().includes(value))
+                .slice(0, this.fontsAmountPerTime);
             this.setState({
                 fonts: filtered
             })
