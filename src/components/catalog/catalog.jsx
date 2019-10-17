@@ -4,7 +4,6 @@ import FontCard from './FontCard.jsx';
 import { CardsList } from "./styles.js";
 
 const INITIAL_STATE = {
-    fonts: null,
     fontsAmount: 0,
     searchString: '',
     previewString: '',
@@ -104,7 +103,7 @@ export default class Catalog extends Component {
                 />
                 <CardsList>
                     {fonts && fonts.map(font => (
-                        <FontCard key={font.family} font={font} text={previewText} />
+                        <FontCard key={font.family} font={font} text={previewText} fontSize={fontSize} />
                     ))}
                 </CardsList>
             </>

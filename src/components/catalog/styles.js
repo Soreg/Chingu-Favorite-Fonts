@@ -77,5 +77,5 @@ export const CardHeadline = styled.div`
 `;
 
 export const CardPreviewText = styled.p`
-    font-size: 32px;
+    font-size: ${props => props.size ? props.size : '10px'};
 `;
