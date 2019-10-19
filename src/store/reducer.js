@@ -1,13 +1,14 @@
 export const initialState = {
     lightmode: true
 };
+
 export const TOGGLE_LIGHTMODE = 'TOGGLE_LIGHTMODE';
 
 export const actions = {};
 
-actions[TOGGLE_LIGHTMODE] = state => ({
+actions[TOGGLE_LIGHTMODE] = (state, action) => ({
     ...state,
-    lightmode: !state.lightmode
+    lightmode: action.lightmode
 });
 
 export default function reducer(state = initialState, action) {
