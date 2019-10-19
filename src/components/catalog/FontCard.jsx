@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { CardWrapper, CardInnerWrapper, CardTopContainer, CardHeadline, CardPreviewText } from "./styles.js";
+import { CardWrapper, CardInnerWrapper, CardTopContainer, CardHeadline, CardPreviewText, CardAddButton } from "./styles.js";
 
 const FontCard = props => {
     const { font, text, fontSize } = props;
@@ -11,6 +11,7 @@ const FontCard = props => {
             <CardInnerWrapper>
                 <CardTopContainer>
                     <CardHeadline>{font.family}</CardHeadline>
+                    <CardAddButton>+</CardAddButton>
                 </CardTopContainer>
 
                 <CardPreviewText
