@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux'
+
 const colors = {
     primary: '#F95759',
     lightgrey: '#EDEDED',
@@ -10,6 +12,7 @@ const sizes = {
 }
 
 const getColor = color => {
+    const lightmode = useSelector(state => state.lightmode);
     return colors[color];
 }
 
