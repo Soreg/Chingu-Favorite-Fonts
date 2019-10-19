@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavbarWrapper, NavSearchInput, NavSampleTextInput, NavSelect, NavReset } from './styles';
+import { NavbarWrapper, NavSearchInput, NavSampleTextInput, NavSelect, NavReset, NavModeWrapper, NavModeButton } from './styles';
 import ResetIcon from '../../assets/icons/reset.svg';
 
 export default class Navbar extends Component {
@@ -30,6 +30,10 @@ export default class Navbar extends Component {
                         <option key={size}>{size}</option>
                     ))}
                 </NavSelect>
+                <NavModeWrapper>
+                    <NavModeButton dark />
+                    <NavModeButton />
+                </NavModeWrapper>
                 <NavReset>
                     <ResetIcon width={25} onClick={onReset} />
                 </NavReset>

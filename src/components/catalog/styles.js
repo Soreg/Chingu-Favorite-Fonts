@@ -31,6 +31,28 @@ export const NavSelect = styled.select`
     padding-left: 10px;
 `;
 
+export const NavModeWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    border-left: 1px solid ${getColor('grey')}
+    padding-left: 10px;
+`;
+
+export const NavModeButton = styled.div`
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: ${props => props.dark ? '#000' : '#fff'};
+    border: 1px solid ${props => !props.dark && `${getColor('darkgrey')}`};
+    margin-right: 5px;
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+`;
+
 export const NavReset = styled.div`
     display: flex;
     align-self: stretch;
