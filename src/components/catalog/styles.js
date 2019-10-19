@@ -68,13 +68,31 @@ export const CardInnerWrapper = styled.div`
 `;
 
 export const CardTopContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 8px 0;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 `;
 
 export const CardHeadline = styled.div`
     font-weight: bold;
     font-size: 16px;
+`;
+
+export const CardAddButton = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: white;
+    background: ${getColor('primary')}
+    border: 1px solid ${getColor('primary')};
+    cursor: pointer;
 `;
 
 export const CardPreviewText = styled.p`
