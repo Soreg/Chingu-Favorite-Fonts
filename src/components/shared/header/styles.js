@@ -18,8 +18,10 @@ export const InnerWrapper = styled.div`
     margin: 0 auto;
 `;
 
-export const Logo = styled.div`
+export const Logo = styled(NavLink)`
     font-size: 21px;
+    color: ${getColor('darkgrey')};
+    text-decoration: none;
 
     span {
         font-weight: bold;
