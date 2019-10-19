@@ -6,7 +6,7 @@ export default class Header extends Component {
         return (
             <Wrapper>
                 <InnerWrapper>
-                    <Logo>
+                    <Logo to="/">
                         <span>Favorite</span>
                         Fonts
                     </Logo>
