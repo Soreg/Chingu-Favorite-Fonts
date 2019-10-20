@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from './router.jsx';
 import './reset.css';
+import './styles.css';
 import reducer from './store/reducer';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
