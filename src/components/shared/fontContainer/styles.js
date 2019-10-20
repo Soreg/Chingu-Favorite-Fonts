@@ -125,3 +125,14 @@ export const CodeContainer = styled.div`
         font-weight: bold;
     }
 `;
+
+export const CodeSnippetLine = styled.div`
+    margin-top: 6px;
+`;
+
+export const Divider = styled.div`
+    width: 100%;
+    height: 2px;
+    background: ${getColor('lightgrey')};
+    margin: 20px auto;
+`;

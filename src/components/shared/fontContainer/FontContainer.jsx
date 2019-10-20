@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import { clearFonts } from '../../../store/actions'
-import { Wrapper, TopContainer, InnerWrapper, Overlay, InnerHeadline, InnerDescription, CodeContainer, SelectionContainer, ClearAllButton, LinkButton, LinkButtonWrapper } from "./styles.js";
+import { Wrapper, TopContainer, InnerWrapper, Overlay, InnerHeadline, InnerDescription, CodeContainer, SelectionContainer, ClearAllButton, LinkButton, LinkButtonWrapper, Divider, CodeSnippetLine } from "./styles.js";
 
 class FontContainer extends React.Component {
     constructor(props) {
@@ -32,6 +32,18 @@ class FontContainer extends React.Component {
         return fontString;
     }
 
+    renderCssSnippet() {
+        const { selectedFonts } = this.props;
+
+        const arr = selectedFonts.map(font => {
+            const { family, category } = font;
+            const type = category === 'handwriting' ? 'cursive' : category;
+            return `font-family: '${family}', ${type};`
+        })
+
+        return arr;
+    }
+
     onClearFonts() {
         const { clearFonts } = this.props;
 
@@ -56,6 +68,7 @@ class FontContainer extends React.Component {
         const { containerOpen, snippetType } = this.state;
         const fontsLength = selectedFonts.length;
         const codeSnippet = fontsLength > 0 ? this.renderCodeSnippet() : null;
+        const cssSnippet = this.renderCssSnippet();
     
         const status = containerOpen ? 'open' : fontsLength > 0 ? 'active' : null
     
@@ -97,9 +110,18 @@ class FontContainer extends React.Component {
                                         <div>{'</style>'}</div>
                                     </CodeContainer>
                                 )
-
                             )
                         }
+                        <Divider />
+
+                        <InnerHeadline>Specify in CSS</InnerHeadline>
+                        <InnerDescription>Use the following CSS rules to specify these families:</InnerDescription>
+
+                        <CodeContainer>
+                            {cssSnippet && cssSnippet.map(snippet => (
+                                <CodeSnippetLine key={snippet}>{snippet}</CodeSnippetLine>
+                            ))}
+                        </CodeContainer>
                     </InnerWrapper>
                 </Wrapper>
             </>
