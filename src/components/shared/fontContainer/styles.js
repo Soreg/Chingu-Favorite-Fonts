@@ -3,6 +3,7 @@ import { getColor } from '../../../frontend-config';
 
 export const Wrapper = styled.div`
     position: fixed;
+    width: 500px;
     z-index: 20;
     bottom: 0;
     right: 50px;
@@ -36,7 +37,6 @@ export const TopContainer = styled.div`
     display: flex;
     align-items: center;
     padding-left: 20px;
-    width: 500px;
     height: 40px;
     background: ${getColor('dark')};
     color: #fff;
@@ -50,7 +50,29 @@ export const TopContainer = styled.div`
 `;
 
 export const InnerWrapper = styled.div`
-    height: 400px;
-    background: grey;
+    padding: 20px 20px 40px;
+    box-sizing: border-box;
+    background: #fff;
     width: 100%;
+`;
+
+export const InnerHeadline = styled.div`
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+`;
+
+export const InnerDescription = styled.div`
+    font-size: 16px;
+`;
+
+export const CodeContainer = styled.div`
+    box-sizing: border-box;
+    margin-top: 10px;
+    padding: 10px;
+    background: ${getColor('lightgrey')};
+
+    span {
+        font-weight: bold;
+    }
 `;
