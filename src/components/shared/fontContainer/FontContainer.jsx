@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
+import { clearFonts } from '../../../store/actions'
 import { Wrapper, TopContainer, InnerWrapper, Overlay, InnerHeadline, InnerDescription, CodeContainer, SelectionContainer, ClearAllButton } from "./styles.js";
 
 class FontContainer extends React.Component {
@@ -11,6 +12,7 @@ class FontContainer extends React.Component {
         }
 
         this.toggleContainer = this.toggleContainer.bind(this);
+        this.onClearFonts = this.onClearFonts.bind(this);
     }
 
     toggleContainer() {
@@ -26,6 +28,15 @@ class FontContainer extends React.Component {
             .join('|')
 
         return fontString;
+    }
+
+    onClearFonts() {
+        const { clearFonts } = this.props;
+
+        clearFonts();
+        this.setState({
+            containerOpen: false
+        })
     }
 
     render() {
@@ -47,7 +58,7 @@ class FontContainer extends React.Component {
                     <InnerWrapper>
                         <SelectionContainer>
                             <InnerHeadline noMargin>Your Selection</InnerHeadline>
-                            <ClearAllButton>Clear All</ClearAllButton>
+                            <ClearAllButton onClick={this.onClearFonts}>Clear All</ClearAllButton>
                         </SelectionContainer>
                         <InnerHeadline>Embed Font</InnerHeadline>
                         <InnerDescription>To embed your selected fonts into a webpage, copy this code into the head of your HTML document.</InnerDescription>
@@ -71,7 +82,11 @@ const mapStateToProps = state => ({
     selectedFonts: state.selectedFonts
 });
 
+const mapDispatchToProps = {
+    clearFonts
+};
+
 export default connect(
     mapStateToProps,
-    null
+    mapDispatchToProps
 )(FontContainer)
