@@ -78,6 +78,26 @@ export const ClearAllButton = styled.div`
     }
 `;
 
+export const LinkButtonWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+`;
+
+export const LinkButton = styled.div`
+    font-size: 13px;
+    color: ${getColor('primary')};
+    font-weight: bold;
+    text-transform: uppercase;
+    opacity: ${props => props.active ? '1' : '0.7'};
+    margin-right: 15px;
+    cursor: pointer;
+
+    &:last-of-type {
+        margin: 0;
+    }
+`;
+
 export const InnerHeadline = styled.div`
     font-size: 15px;
     font-weight: bold;

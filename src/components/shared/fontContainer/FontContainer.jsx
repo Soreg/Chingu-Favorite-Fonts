@@ -1,18 +1,20 @@
 import React from "react";
 import { connect } from 'react-redux';
 import { clearFonts } from '../../../store/actions'
-import { Wrapper, TopContainer, InnerWrapper, Overlay, InnerHeadline, InnerDescription, CodeContainer, SelectionContainer, ClearAllButton } from "./styles.js";
+import { Wrapper, TopContainer, InnerWrapper, Overlay, InnerHeadline, InnerDescription, CodeContainer, SelectionContainer, ClearAllButton, LinkButton, LinkButtonWrapper } from "./styles.js";
 
 class FontContainer extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            containerOpen: false
+            containerOpen: false,
+            snippetType: 'standard'
         }
 
         this.toggleContainer = this.toggleContainer.bind(this);
         this.onClearFonts = this.onClearFonts.bind(this);
+        this.setSnippetType = this.setSnippetType.bind(this);
     }
 
     toggleContainer() {
@@ -39,9 +41,19 @@ class FontContainer extends React.Component {
         })
     }
 
+    setSnippetType(type) {
+        const { snippetType } = this.state;
+
+        if (snippetType !== type) {
+            this.setState({
+                snippetType: type
+            })
+        }
+    }
+
     render() {
         const { selectedFonts } = this.props;
-        const { containerOpen } = this.state;
+        const { containerOpen, snippetType } = this.state;
         const fontsLength = selectedFonts.length;
         const codeSnippet = fontsLength > 0 ? this.renderCodeSnippet() : null;
     
@@ -62,13 +74,30 @@ class FontContainer extends React.Component {
                         </SelectionContainer>
                         <InnerHeadline>Embed Font</InnerHeadline>
                         <InnerDescription>To embed your selected fonts into a webpage, copy this code into the head of your HTML document.</InnerDescription>
+
+                        <LinkButtonWrapper>
+                            <LinkButton active={snippetType === 'standard'} onClick={() => this.setSnippetType('standard')}>Standard</LinkButton>
+                            <LinkButton active={snippetType === 'import'} onClick={() => this.setSnippetType('import')}>@Import</LinkButton>
+                        </LinkButtonWrapper>
+                        
                         {
                             codeSnippet && (
-                                <CodeContainer>
-                                    {'<link href="https://fonts.googleapis.com/css?family='}
-                                    <span>{codeSnippet}</span>
-                                    {'&display=swap" rel="stylesheet">'}
-                                </CodeContainer>
+                                snippetType === 'standard' ? (
+                                    <CodeContainer>
+                                        {'<link href="https://fonts.googleapis.com/css?family='}
+                                        <span>{codeSnippet}</span>
+                                        {'&display=swap" rel="stylesheet">'}
+                                    </CodeContainer>
+                                ) : (
+                                    <CodeContainer>
+                                        <div>{'<style>'}</div>
+                                        {"@import url('https://fonts.googleapis.com/css?family="}
+                                        <span>{codeSnippet}</span>
+                                        {"&display=swap');"}
+                                        <div>{'</style>'}</div>
+                                    </CodeContainer>
+                                )
+
                             )
                         }
                     </InnerWrapper>
