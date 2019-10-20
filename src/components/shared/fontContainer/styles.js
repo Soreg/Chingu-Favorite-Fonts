@@ -40,12 +40,13 @@ export const TopContainer = styled.div`
     height: 40px;
     background: ${getColor('dark')};
     color: #fff;
-    font-size: 20px;
+    font-size: 15px;
     cursor: pointer;
 
     span {
         color: ${getColor('orange')};
         margin-right: 5px;
+        font-weight: bold;
     }
 `;
 
