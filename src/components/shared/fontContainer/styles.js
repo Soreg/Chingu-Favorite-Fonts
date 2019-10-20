@@ -56,11 +56,33 @@ export const InnerWrapper = styled.div`
     width: 100%;
 `;
 
+export const SelectionContainer = styled.div`
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+`;
+
+export const ClearAllButton = styled.div`
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+    cursor: pointer;
+    color: ${getColor('primary')};
+    font-size: 14px;
+    padding: 10px 8px;
+    transition: all ease .3s;
+    font-weight: bold;
+
+    &:hover {
+        background:${getColor('lightgrey')}
+    }
+`;
+
 export const InnerHeadline = styled.div`
     font-size: 15px;
     font-weight: bold;
     color: ${getColor('dark')}
-    margin-bottom: 10px;
+    ${props => !props.noMargin && `margin-bottom: 10px`};
 `;
 
 export const InnerDescription = styled.div`

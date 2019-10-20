@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
-import { Wrapper, TopContainer, InnerWrapper, Overlay, InnerHeadline, InnerDescription, CodeContainer } from "./styles.js";
+import { Wrapper, TopContainer, InnerWrapper, Overlay, InnerHeadline, InnerDescription, CodeContainer, SelectionContainer, ClearAllButton } from "./styles.js";
 
 class FontContainer extends React.Component {
     constructor(props) {
@@ -45,6 +45,10 @@ class FontContainer extends React.Component {
                         Families Selected
                     </TopContainer>
                     <InnerWrapper>
+                        <SelectionContainer>
+                            <InnerHeadline noMargin>Your Selection</InnerHeadline>
+                            <ClearAllButton>Clear All</ClearAllButton>
+                        </SelectionContainer>
                         <InnerHeadline>Embed Font</InnerHeadline>
                         <InnerDescription>To embed your selected fonts into a webpage, copy this code into the head of your HTML document.</InnerDescription>
                         {
