@@ -3,6 +3,7 @@ import { getColor } from '../../../frontend-config';
 
 export const Wrapper = styled.div`
     position: fixed;
+    z-index: 100;
     bottom: 0;
     background: ${getColor('lightgrey')};
     color: ${getColor('darkgrey')};

@@ -3,6 +3,7 @@ import { getColor } from '../../../frontend-config';
 
 export const Wrapper = styled.div`
     position: fixed;
+    z-index: 20;
     bottom: 0;
     right: 50px;
     ${props => {
@@ -15,6 +16,19 @@ export const Wrapper = styled.div`
             return 'transform: translateY(calc(100% - 40px));'
         }
     }}
+    transition: all ease .3s;
+`;
+
+export const Overlay = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 10;
+    opacity: ${props => props.active ? '0.3' : '0'}
+    visibility: ${props => props.active ? 'visible' : 'hidden'}
     transition: all ease .3s;
 `;
 
