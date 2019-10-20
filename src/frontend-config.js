@@ -4,7 +4,7 @@ const colors = {
     grey: '#CCC',
     darkgrey: '#666666',
     dark: '#262626',
-    orange: '#db5f00'
+    orange: '#eb6e0e'
 }
 
 const sizes = {

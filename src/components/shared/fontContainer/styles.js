@@ -40,12 +40,13 @@ export const TopContainer = styled.div`
     height: 40px;
     background: ${getColor('dark')};
     color: #fff;
-    font-size: 20px;
+    font-size: 15px;
     cursor: pointer;
 
     span {
         color: ${getColor('orange')};
         margin-right: 5px;
+        font-weight: bold;
     }
 `;
 
@@ -54,13 +55,57 @@ export const InnerWrapper = styled.div`
     box-sizing: border-box;
     background: #fff;
     width: 100%;
+    height: 400px;
+    overflow-y: auto;
+`;
+
+export const SelectionContainer = styled.div`
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+`;
+
+export const ClearAllButton = styled.div`
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+    cursor: pointer;
+    color: ${getColor('primary')};
+    font-size: 14px;
+    padding: 10px 8px;
+    transition: all ease .3s;
+    font-weight: bold;
+
+    &:hover {
+        background:${getColor('lightgrey')}
+    }
+`;
+
+export const LinkButtonWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+`;
+
+export const LinkButton = styled.div`
+    font-size: 13px;
+    color: ${getColor('primary')};
+    font-weight: bold;
+    text-transform: uppercase;
+    opacity: ${props => props.active ? '1' : '0.7'};
+    margin-right: 15px;
+    cursor: pointer;
+
+    &:last-of-type {
+        margin: 0;
+    }
 `;
 
 export const InnerHeadline = styled.div`
     font-size: 15px;
     font-weight: bold;
     color: ${getColor('dark')}
-    margin-bottom: 10px;
+    ${props => !props.noMargin && `margin-bottom: 10px`};
 `;
 
 export const InnerDescription = styled.div`
@@ -80,4 +125,15 @@ export const CodeContainer = styled.div`
     span {
         font-weight: bold;
     }
+`;
+
+export const CodeSnippetLine = styled.div`
+    margin-top: 6px;
+`;
+
+export const Divider = styled.div`
+    width: 100%;
+    height: 2px;
+    background: ${getColor('lightgrey')};
+    margin: 20px auto;
 `;
