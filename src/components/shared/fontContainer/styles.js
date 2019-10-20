@@ -54,6 +54,8 @@ export const InnerWrapper = styled.div`
     box-sizing: border-box;
     background: #fff;
     width: 100%;
+    height: 400px;
+    overflow-y: auto;
 `;
 
 export const SelectionContainer = styled.div`
