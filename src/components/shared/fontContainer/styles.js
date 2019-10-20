@@ -57,20 +57,25 @@ export const InnerWrapper = styled.div`
 `;
 
 export const InnerHeadline = styled.div`
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
+    color: ${getColor('dark')}
     margin-bottom: 10px;
 `;
 
 export const InnerDescription = styled.div`
-    font-size: 16px;
+    font-size: 15px;
+    color: ${getColor('darkgrey')}
 `;
 
 export const CodeContainer = styled.div`
     box-sizing: border-box;
-    margin-top: 10px;
+    margin-top: 15px;
     padding: 10px;
     background: ${getColor('lightgrey')};
+    color: ${getColor('darkgrey')}
+    word-break: break-all;
+    font-size: 14px;
 
     span {
         font-weight: bold;

@@ -29,6 +29,7 @@ export const NavSelect = styled.select`
     border: none;
     outline: 0;
     padding-left: 10px;
+    cursor: pointer;
 `;
 
 export const NavReset = styled.div`
@@ -84,7 +85,7 @@ export const CardAddButton = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 25px;
+    font-size: 24px;
     font-weight: bold;
     width: 20px;
     height: 20px;
