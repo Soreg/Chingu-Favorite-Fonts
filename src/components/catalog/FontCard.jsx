@@ -6,16 +6,15 @@ import { CardWrapper, CardInnerWrapper, CardTopContainer, CardHeadline, CardPrev
 const FontCard = props => {
     const { font, text, fontSize } = props;
 
-    const url = font.files.regular && font.files.regular.replace("http", "https");
-
     const dispatch = useDispatch();
     const selectedFonts = useSelector(state => state.selectedFonts);
 
-    function handleAddCard (font) {
-        const matchingFonts = selectedFonts.filter(selected => selected.family === font.family);
+    const url = font.files.regular && font.files.regular.replace("http", "https");
+    const isSelected = selectedFonts.filter(selected => selected.family === font.family).length > 0;
 
 
-        if (matchingFonts.length <= 0) {
+    function handleAddCard (font, isSelected) {
+        if (!isSelected) {
             dispatch(addFont(font))
         } else {
             dispatch(removeFont(font.family))
@@ -27,7 +26,7 @@ const FontCard = props => {
             <CardInnerWrapper>
                 <CardTopContainer>
                     <CardHeadline>{font.family}</CardHeadline>
-                    <CardAddButton onClick={() => handleAddCard(font)}>+</CardAddButton>
+                    <CardAddButton onClick={() => handleAddCard(font, isSelected)}>{isSelected ? '-' : '+'}</CardAddButton>
                 </CardTopContainer>
 
                 <CardPreviewText
