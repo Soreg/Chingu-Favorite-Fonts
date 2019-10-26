@@ -141,7 +141,7 @@ export const MenuCloseIcon = styled.div`
         position: absolute;
         height: 2px;
         width: 20px;
-        background: ${props => props.theme.darkgrey};
+        background: ${props => props.theme.headerFontColor};
     }
 
     &:before {
