@@ -14,9 +14,16 @@ const FontCard = props => {
 
 
     function handleAddCard (font, isSelected) {
+        let selectedStorage = JSON.parse(localStorage.getItem('favoriteFonts-fonts'));
+        
         if (!isSelected) {
+            selectedStorage = selectedStorage ? [...selectedStorage, font] : [font];
+            localStorage.setItem('favoriteFonts-fonts', JSON.stringify(selectedStorage));
+            // localStorage.setItem
             dispatch(addFont(font))
         } else {
+            selectedStorage = selectedStorage.filter(savedFont => savedFont.family !== font.family);
+            localStorage.setItem('favoriteFonts-fonts', JSON.stringify(selectedStorage));
             dispatch(removeFont(font.family))
         }
     }
