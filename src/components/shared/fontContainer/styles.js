@@ -67,7 +67,7 @@ export const InnerWrapper = styled.div`
     box-sizing: border-box;
     background: #fff;
     width: 100%;
-    height: 400px;
+    max-height: calc(100vh - 180px);
     overflow-y: auto;
 `;
 
