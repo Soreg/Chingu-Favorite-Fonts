@@ -30,7 +30,12 @@ export default class Catalog extends Component {
     }
 
     componentDidMount() {
+        const { fonts } = this.props;
+        
         window.addEventListener('scroll', this.onScroll, true);
+        if (fonts) {
+            this.getNextFonts();
+        }
     }
 
     componentDidUpdate(prevProps) {
