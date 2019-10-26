@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from "react-router-dom";
 import { getColor, breakpoint } from '../../../frontend-config';
 
-
+// Header
 export const Wrapper = styled.div`
     width: 100%;
     padding: 20px 0;
@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
 `;
 
 export const InnerWrapper = styled.div`
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -56,5 +57,31 @@ export const NavigationLink = styled(NavLink)`
 
     &.active {
         color: ${getColor('primary')};
+    }
+`;
+
+// Mobile menu
+export const MenuButton = styled.div`
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    width: 20px;
+    height: 2px;
+    background: ${getColor('darkgrey')};;
+
+    &:before, &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: inherit;
+        background: inherit;
+    }
+
+    &:before {
+        top: -6px;
+    }
+
+    &:after {
+        top: 6px;
     }
 `;
