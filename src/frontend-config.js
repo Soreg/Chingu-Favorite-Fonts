@@ -8,7 +8,11 @@ const colors = {
 }
 
 const sizes = {
-    maxWidth: '1500px'
+    maxWidth: '1500px',
+    sm: '576px',
+    md: '768px',
+    lg: '992px',
+    xl: '1280px',
 }
 
 const getColor = color => {
@@ -19,4 +23,8 @@ const getPageSize = size => {
     return sizes[size];
 }
 
-export { getColor, getPageSize };
+const breakpoint = size => {
+    return sizes[size];
+}
+
+export { getColor, getPageSize, breakpoint };
