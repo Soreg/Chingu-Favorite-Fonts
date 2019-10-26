@@ -46,7 +46,6 @@ class FontContainer extends React.Component {
 
     onClearFonts() {
         const { clearFonts } = this.props;
-            localStorage.setItem('favoriteFonts-fonts', null);
 
         clearFonts();
         this.setState({
