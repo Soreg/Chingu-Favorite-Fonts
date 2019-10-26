@@ -40,6 +40,8 @@ class Router extends Component {
         const lightTheme = {
             primary: '#F95759',
             orange: '#eb6e0e',
+            lightgrey: '#EDEDED',
+            grey: '#CCC',
             header: {
                 bg: '#FFF',
                 fg: '#666666',
@@ -66,21 +68,22 @@ class Router extends Component {
             },
             fontContainer: {
                 bg: '#FFF',
+                fg: '#262626',
+                fgHeadline: '#262626',
                 bgHeader: '#262626',
                 bgSnippet: '#EDEDED'
             },
             catalogPage: {
-                bgCard: '#fff'
-            },
-
-            lightgrey: '#EDEDED',
-            grey: '#CCC',
-            darkgrey: '#666',
-            dark: '#262626',
+                bgCard: '#fff',
+                topLine: '#000'
+            }
         };
 
         const darkTheme = {
             primary: '#B53F41',
+            orange: '#ffd5c5',
+            lightgrey: '#424242',
+            grey: '#656565',
             header: {
                 bg: '#272727',
                 fg: '#DEDEDE',
@@ -107,11 +110,14 @@ class Router extends Component {
             },
             fontContainer: {
                 bg: '#252525',
-                bgHeader: '#a73d3d',
+                fg: '#EDEDED',
+                fgHeadline: '#EDEDED',
+                bgHeader: '#8E3939',
                 bgSnippet: '#483131'
             },
             catalogPage: {
-                bgCard: '#232323'
+                bgCard: '#232323',
+                topLine: '#8E3939'
             }
         };
 

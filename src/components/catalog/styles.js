@@ -178,7 +178,7 @@ export const CardWrapper = styled.div`
 `;
 
 export const CardInnerWrapper = styled.div`
-    border-top: 1px solid #000;
+    border-top: 1px solid ${props => props.theme.catalogPage.topLine};;
 `;
 
 export const CardTopContainer = styled.div`

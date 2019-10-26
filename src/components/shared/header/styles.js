@@ -157,7 +157,7 @@ export const Section = styled.div`
     position: relative;
     padding: 20px 10px;
     color: ${props => props.theme.headerFontColor};
-    border-bottom: 1px solid ${props => props.theme.darkgrey};
+    border-bottom: 1px solid ${props => props.theme.header.fg};
 
     > a {
         color: inherit;

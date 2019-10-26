@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { breakpoint } from '../../../frontend-config';
 
 export const Wrapper = styled.div`
+    color: ${props => props.theme.fontContainer.fg};
     position: fixed;
     width: 300px;
     z-index: 20;
@@ -116,13 +117,12 @@ export const LinkButton = styled.div`
 export const InnerHeadline = styled.div`
     font-size: 15px;
     font-weight: bold;
-    color: ${props => props.theme.dark};
+    color: ${props => props.theme.fontContainer.fgHeadline};
     ${props => !props.noMargin && `margin-bottom: 10px`};
 `;
 
 export const InnerDescription = styled.div`
     font-size: 15px;
-    color: ${props => props.theme.darkgrey};
 `;
 
 export const CodeContainer = styled.div`
@@ -130,7 +130,6 @@ export const CodeContainer = styled.div`
     margin-top: 15px;
     padding: 10px;
     background: ${props => props.theme.fontContainer.bgSnippet};
-    color: ${props => props.theme.darkgrey};
     word-break: break-all;
     font-size: 14px;
 
