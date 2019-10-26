@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavbarWrapper, NavSearchInput, NavSampleTextInput, NavSelect, NavReset } from './styles';
+import { NavbarWrapper, NavSearchInput, NavSampleTextInput, NavSelect, NavReset, NavRightWrapper } from './styles';
 import ResetIcon from '../../assets/icons/reset.svg';
 
 export default class Navbar extends Component {
@@ -25,14 +25,16 @@ export default class Navbar extends Component {
             <NavbarWrapper>
                 <NavSearchInput placeholder='Search fonts' value={searchString} onChange={onSearch} />
                 <NavSampleTextInput placeholder='Type sample text' value={previewString} onChange={onPreviewChange} />
-                <NavSelect value={fontSize} onChange={onFontSizeChange}>
-                    {fontSizes.map(size => (
-                        <option key={size}>{size}</option>
-                    ))}
-                </NavSelect>
-                <NavReset>
-                    <ResetIcon width={25} onClick={onReset} />
-                </NavReset>
+                <NavRightWrapper>
+                    <NavSelect value={fontSize} onChange={onFontSizeChange}>
+                        {fontSizes.map(size => (
+                            <option key={size}>{size}</option>
+                        ))}
+                    </NavSelect>
+                    <NavReset>
+                        <ResetIcon width={25} onClick={onReset} />
+                    </NavReset>
+                </NavRightWrapper>
             </NavbarWrapper>
         )
     }
