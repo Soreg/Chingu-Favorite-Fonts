@@ -47,6 +47,10 @@ class Router extends Component {
                 bg: '#FFF',
                 bgTitle: '#EDEDED',
             },
+            footer: {
+                bg: '#EDEDED',
+                fg: '#666666',
+            },
 
             primary: '#F95759',
             lightgrey: '#EDEDED',
@@ -65,6 +69,10 @@ class Router extends Component {
                 hamburger: '#DEDEDE',
                 bg: '#272727',
                 bgTitle: '#383838',
+            },
+            footer: {
+                bg: '#272727',
+                fg: '#DEDEDE',
             },
         };
 
