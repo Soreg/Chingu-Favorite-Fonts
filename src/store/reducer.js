@@ -1,6 +1,6 @@
   
 export const initialState = {
-    selectedFonts: []
+    selectedFonts: JSON.parse(localStorage.getItem('favoriteFonts-fonts')) || []
 };
 
 export const ADD_FONT = 'ADD_FONT';
