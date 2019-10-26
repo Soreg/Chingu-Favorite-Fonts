@@ -8,6 +8,7 @@ import { breakpoint } from '../frontend-config';
 export const Container = styled.div`
     background: ${props => props.theme.page.bg};
     color: ${props => props.theme.page.fg};
+    min-height: 100vh;
 `;
 
 export const PageWrapper = styled.div`
