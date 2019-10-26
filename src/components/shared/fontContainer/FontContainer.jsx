@@ -78,7 +78,11 @@ class FontContainer extends React.Component {
                 <Wrapper status={status}>
                     <TopContainer onClick={this.toggleContainer}>
                         <span>{fontsLength}</span>
-                        Families Selected
+                        {fontsLength === 1 ? (
+                            `Family selected`
+                        ) : (
+                            `Families selected`
+                        )}
                     </TopContainer>
                     <InnerWrapper>
                         <SelectionContainer>
