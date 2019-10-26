@@ -38,6 +38,12 @@ class Router extends Component {
         const { theme } = this.props;
 
         const lightTheme = {
+            headerBg: '#FFF',
+            headerFontColor: '#666666',
+            hamburgerMenuColor: '#666666',
+            mobileMenuBackground: '#FFF',
+            mobileMenuTitleBackground: '#EDEDED',
+
             primary: '#F95759',
             lightgrey: '#EDEDED',
             grey: '#CCC',
@@ -47,12 +53,11 @@ class Router extends Component {
         };
 
         const darkTheme = {
-            primary: 'black',
-            lightgrey: 'black',
-            grey: 'black',
-            darkgrey: 'black',
-            dark: 'black',
-            orange: 'black'
+            headerBg: '#272727',
+            headerFontColor: '#DEDEDE',
+            hamburgerMenuColor: '#DEDEDE',
+            mobileMenuBackground: '#272727',
+            mobileMenuTitleBackground: '#383838',
         };
 
         return (

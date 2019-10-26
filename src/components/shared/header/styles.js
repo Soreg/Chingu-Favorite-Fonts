@@ -7,13 +7,13 @@ export const Wrapper = styled.div`
     position: fixed;
     top: 0;
     left: 0;
-    background: #fff;
+    background: ${props => props.theme.headerBg};
     z-index: 40;
     width: 100%;
     height: 60px;
     border-top: 1px solid ${props => props.theme.grey};
     border-bottom: 1px solid ${props => props.theme.grey};
-    color: ${props => props.theme.darkgrey};
+    color: ${props => props.theme.headerFontColor};
 
     @media (min-width: ${breakpoint('md')}) {
         position: relative;
@@ -37,7 +37,7 @@ export const InnerWrapper = styled.div`
 
 export const Logo = styled(NavLink)`
     font-size: 21px;
-    color: ${props => props.theme.darkgrey};
+    color: ${props => props.theme.headerFontColor};
     text-decoration: none;
 
     span {
@@ -77,7 +77,7 @@ export const MenuButton = styled.div`
     right: 50px;
     width: 20px;
     height: 2px;
-    background: ${props => props.theme.darkgrey};
+    background: ${props => props.theme.hamburgerMenuColor};
 
     &:before, &:after {
         content: "";
@@ -117,7 +117,7 @@ export const MenuWrapper = styled.div`
     height: 100vh;
     width: calc(100% - 80px);
     max-width: 450px;
-    background: #fff;
+    background: ${props => props.theme.mobileMenuBackground};
     z-index: 100;
     overflow-x: hidden;
     text-align: center;
@@ -156,7 +156,7 @@ export const MenuCloseIcon = styled.div`
 export const Section = styled.div`
     position: relative;
     padding: 20px 10px;
-    color: #000;
+    color: ${props => props.theme.headerFontColor};
     border-bottom: 1px solid ${props => props.theme.darkgrey};
 
     > a {
@@ -167,5 +167,5 @@ export const Section = styled.div`
 
 export const SectionHeadline = styled(Section)`
     font-weight: bold;
-    background: ${props => props.theme.lightgrey};
+    background: ${props => props.theme.mobileMenuTitleBackground};
 `;
