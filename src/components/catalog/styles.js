@@ -7,6 +7,7 @@ export const NavbarWrapper = styled.div`
     flex-direction: column;
     margin: 20px auto 40px;
     background: ${props => props.theme.fontNavbar.bg};
+    padding: 10px;
 
     @media (min-width: ${breakpoint('md')}) {
         flex-direction: row;

@@ -25,7 +25,6 @@ const Navbar = props => {
     const dispatch = useDispatch();
 
     function onThemeChange(theme) {
-        console.log(theme);
         dispatch(changeTheme(theme))
     }
 
