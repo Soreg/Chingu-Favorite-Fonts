@@ -56,6 +56,13 @@ class Router extends Component {
                 bg: '#FFF',
                 fg: '#000'
             },
+            fontNavbar: {
+                bg: '#FFF',
+                fg: '#666',
+                fgSelect: '#000',
+                border: '#CCC',
+                resetIcon: '#666'
+            },
 
             lightgrey: '#EDEDED',
             grey: '#CCC',
@@ -81,7 +88,14 @@ class Router extends Component {
             },
             page: {
                 bg: '#1D1D1D',
-                fg: '#CECECE'
+                fg: '#F5F5F5'
+            },
+            fontNavbar: {
+                bg: '#333',
+                fg: '#EDEDED',
+                fgSelect: '#EDEDED',
+                border: '#797979',
+                resetIcon: '#EDEDED'
             },
         };
 

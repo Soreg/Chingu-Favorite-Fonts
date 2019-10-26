@@ -6,11 +6,12 @@ export const NavbarWrapper = styled.div`
     display: flex;
     flex-direction: column;
     margin: 20px auto 40px;
+    background: ${props => props.theme.fontNavbar.bg};
 
     @media (min-width: ${breakpoint('md')}) {
         flex-direction: row;
         padding: 0 30px;
-        border: 1px solid ${props => props.theme.grey};
+        border: 1px solid ${props => props.theme.fontNavbar.border};
         border-radius: 20px;
         align-items: center;
     }
@@ -20,16 +21,22 @@ export const NavSearchInput = styled.input`
     width: 30%;
     font-size: 15px;
     outline: 0;
-    border: 1px solid ${props => props.theme.grey};
+    border: 1px solid ${props => props.theme.fontNavbar.border};
     margin-bottom: 10px;
     border-radius: 3px;
     width: 100%;
     padding: 10px 15px;
+    background: ${props => props.theme.fontNavbar.bg};
+    color: ${props => props.theme.fontNavbar.fg};
+
+    &::placeholder {
+        color: inherit;
+    }
 
     @media (min-width: ${breakpoint('md')}) {
         font-size: 18px;
         border: none;
-        border-right: 1px solid ${props => props.theme.grey};
+        border-right: 1px solid ${props => props.theme.fontNavbar.border};
         border-radius: 0;
         padding: 10px 0;
         margin: 0;
@@ -60,6 +67,8 @@ export const NavSelect = styled.select`
     outline: 0;
     padding: 5px 2px;
     cursor: pointer;
+    background: ${props => props.theme.fontNavbar.bg};
+    color: ${props => props.theme.fontNavbar.fgSelect};
 
     @media (min-width: ${breakpoint('md')}) {
         align-self: stretch;
@@ -74,7 +83,7 @@ export const NavThemeWrapper = styled.div`
 
     @media (min-width: ${breakpoint('md')}) {
         align-self: stretch;
-        border-left: 1px solid ${props => props.theme.grey};
+        border-left: 1px solid ${props => props.theme.fontNavbar.border};
         padding-left: 10px;
     }
 `;
@@ -101,13 +110,13 @@ export const NavReset = styled.div`
     border-left: none;
 
     @media (min-width: ${breakpoint('md')}) {
-        border-left: 1px solid ${props => props.theme.grey};
+        border-left: 1px solid ${props => props.theme.fontNavbar.border};
         flex: 1;
     }
 
     svg {
         cursor: pointer;
-        fill: ${props => props.theme.darkgrey};
+        fill: ${props => props.theme.fontNavbar.resetIcon};
     }
 `;
 
