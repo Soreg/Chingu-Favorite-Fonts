@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from "react-router-dom";
-import { getColor } from '../../../frontend-config';
+import { getColor, breakpoint } from '../../../frontend-config';
 
 
 export const Wrapper = styled.div`
@@ -8,14 +8,19 @@ export const Wrapper = styled.div`
     padding: 20px 0;
     border-bottom: 1px solid ${getColor('grey')};
     color: ${getColor('darkgrey')};
+    opacity: 1;
 `;
 
 export const InnerWrapper = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0 60px;
     margin: 0 auto;
+
+    @media (min-width: ${breakpoint('md')}) {
+        justify-content: space-between;
+    }
 `;
 
 export const Logo = styled(NavLink)`
@@ -30,9 +35,14 @@ export const Logo = styled(NavLink)`
 `;
 
 export const LinksWrapper = styled.div`
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
+    display: none;
+
+    @media (min-width: ${breakpoint('md')}) {
+        display: block;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+    }
 `;
 
 export const NavigationLink = styled(NavLink)`
