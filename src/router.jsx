@@ -8,9 +8,11 @@ import {
     BrowserRouter,
     Switch,
     Route
-  } from "react-router-dom";
+} from "react-router-dom";
+import styled, { ThemeProvider } from 'styled-components';
+import { connect } from 'react-redux';
 
-export default class Router extends Component {
+class Router extends Component {
     constructor(props) {
         super(props);
 
@@ -33,24 +35,44 @@ export default class Router extends Component {
 
     render() {
         const { catalogFonts } = this.state;
+        const { theme } = this.props;
+
+        const lightTheme = {
+
+        };
+
+        const darkTheme = {
+
+        };
 
         return (
-            <BrowserRouter>
-                <Switch>
-                    <Route path="/featured">
-                        <ContentWrapper children={<Featured />} />
-                    </Route>
-                    <Route path="/articles">
-                        <ContentWrapper children={<Articles />} />
-                    </Route>
-                    <Route path="/about">
-                        <ContentWrapper children={<About />} />
-                    </Route>
-                    <Route path="/">
-                        <ContentWrapper children={<Catalog fonts={catalogFonts}  />} />
-                    </Route>
-                </Switch>
-            </BrowserRouter>            
+            <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+                <BrowserRouter>
+                    <Switch>
+                        <Route path="/featured">
+                            <ContentWrapper children={<Featured />} />
+                        </Route>
+                        <Route path="/articles">
+                            <ContentWrapper children={<Articles />} />
+                        </Route>
+                        <Route path="/about">
+                            <ContentWrapper children={<About />} />
+                        </Route>
+                        <Route path="/">
+                            <ContentWrapper children={<Catalog fonts={catalogFonts}  />} />
+                        </Route>
+                    </Switch>
+                </BrowserRouter> 
+            </ThemeProvider>           
         )
     }
 }
+
+const mapStateToProps = state => ({
+    theme: state.theme
+});
+
+export default connect(
+    mapStateToProps,
+    null
+)(Router)
