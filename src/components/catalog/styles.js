@@ -154,23 +154,26 @@ export const BackToTop = styled.div`
 
 // Card
 export const CardWrapper = styled.div`
+    display: flex;
     align-self: stretch;
     box-sizing: border-box;
     width: 100%;
-    padding: 0 25px;
-    margin-bottom: 30px;
+    padding: 10px 25px 30px;
     min-height: 250px;
+    background: ${props => props.theme.catalogPage.bgCard};
+    margin-bottom: 20px;
 
     @media (min-width: ${breakpoint('md')}) {
-        width: 50%
+        margin: 5px;
+        width: calc(50% - 10px);
     }
 
     @media (min-width: ${breakpoint('lg')}) {
-        width: 33.3%
+        width: calc(33.3% - 10px);
     }
 
     @media (min-width: ${breakpoint('xl')}) {
-        width: 25%
+        width: calc(25% - 10px);
     }
 `;
 

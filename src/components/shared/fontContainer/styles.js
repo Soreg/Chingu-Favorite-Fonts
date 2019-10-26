@@ -50,7 +50,7 @@ export const TopContainer = styled.div`
     align-items: center;
     padding-left: 20px;
     height: 40px;
-    background: ${props => props.theme.dark};
+    background: ${props => props.theme.fontContainer.bgHeader};
     color: #fff;
     font-size: 15px;
     cursor: pointer;
@@ -65,7 +65,7 @@ export const TopContainer = styled.div`
 export const InnerWrapper = styled.div`
     padding: 20px 20px 40px;
     box-sizing: border-box;
-    background: #fff;
+    background: ${props => props.theme.fontContainer.bg};
     width: 100%;
     max-height: calc(100vh - 180px);
     overflow-y: auto;
@@ -129,7 +129,7 @@ export const CodeContainer = styled.div`
     box-sizing: border-box;
     margin-top: 15px;
     padding: 10px;
-    background: ${props => props.theme.lightgrey};
+    background: ${props => props.theme.fontContainer.bgSnippet};
     color: ${props => props.theme.darkgrey};
     word-break: break-all;
     font-size: 14px;
