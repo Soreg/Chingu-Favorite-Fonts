@@ -68,10 +68,33 @@ export const NavSelect = styled.select`
     }
 `;
 
+export const NavThemeWrapper = styled.div`
+    display: flex;
+    align-items: center;
+
+    @media (min-width: ${breakpoint('md')}) {
+        align-self: stretch;
+        border-left: 1px solid ${getColor('grey')};
+        padding-left: 10px;
+    }
+`;
+
+export const NavThemeButton = styled.div`
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 8px;
+    background: ${props => props.dark ? '#000' : '#fff'}
+    border: 1px solid ${props => props.dark ? '#fff' : '#000'}
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+`;
+
 export const NavReset = styled.div`
     display: flex;
     align-self: stretch;
-    flex: 1;
     justify-content: flex-end;
     padding-left: 10px;
     margin-left: 10px;
@@ -79,6 +102,7 @@ export const NavReset = styled.div`
 
     @media (min-width: ${breakpoint('md')}) {
         border-left: 1px solid ${getColor('grey')};
+        flex: 1;
     }
 
     svg {
