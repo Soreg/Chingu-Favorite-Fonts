@@ -1,10 +1,38 @@
 import React from 'react';
-import { MenuButton } from './styles';
+import { withRouter } from "react-router-dom";
+import { MenuOverlay, MenuWrapper, SectionHeadline, Section } from './styles';
 
-export default class MobileMenu extends React.Component {
+class MobileMenu extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.onLinkClick = this.onLinkClick.bind(this);
+    }
+
+    onLinkClick(target) {
+        const { history, closeMenu } = this.props;
+
+        history.push(target);
+        closeMenu();
+    }
+
     render() {
+        const { open, closeMenu } = this.props;
+
         return (
-            <MenuButton />
+            <>
+                <MenuOverlay show={open} onClick={closeMenu} />
+                <MenuWrapper show={open}>
+                    <SectionHeadline>Navigation</SectionHeadline>
+                    <Section onClick={() => this.onLinkClick('/catalog')}>Catalog</Section>
+                    <Section onClick={() => this.onLinkClick('/featured')}>Featured</Section>
+                    <Section onClick={() => this.onLinkClick('/articles')}>Articles</Section>
+                    <Section onClick={() => this.onLinkClick('/about')}>About</Section>
+
+                </MenuWrapper>
+            </>
         )
     }
 }
+
+export default withRouter(MobileMenu)

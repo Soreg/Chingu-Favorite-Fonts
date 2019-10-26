@@ -14,6 +14,7 @@ export default class Header extends Component {
 
         this.onResize = this.onResize.bind(this);
         this.openMobileMenu = this.openMobileMenu.bind(this);
+        this.closeMobileMenu = this.closeMobileMenu.bind(this);
     }
 
     componentDidMount() {
@@ -47,11 +48,18 @@ export default class Header extends Component {
         })
     }
 
+    closeMobileMenu() {
+        this.setState({
+            mobileMenuOpen: false
+        })
+    }
+
     render() {
         const { mobile, mobileMenuOpen } = this.state;
 
         return (
             <Wrapper>
+                <MobileMenu open={mobileMenuOpen} closeMenu={this.closeMobileMenu} />
                 <InnerWrapper>
                     <Logo to="/">
                         <span>Favorite</span>

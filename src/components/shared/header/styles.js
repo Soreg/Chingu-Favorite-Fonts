@@ -8,7 +8,6 @@ export const Wrapper = styled.div`
     padding: 20px 0;
     border-bottom: 1px solid ${getColor('grey')};
     color: ${getColor('darkgrey')};
-    opacity: 1;
 `;
 
 export const InnerWrapper = styled.div`
@@ -60,14 +59,13 @@ export const NavigationLink = styled(NavLink)`
     }
 `;
 
-// Mobile menu
 export const MenuButton = styled.div`
     position: absolute;
     top: 50%;
     right: 50px;
     width: 20px;
     height: 2px;
-    background: ${getColor('darkgrey')};;
+    background: ${getColor('darkgrey')};
 
     &:before, &:after {
         content: "";
@@ -84,4 +82,48 @@ export const MenuButton = styled.div`
     &:after {
         top: 6px;
     }
+`;
+
+// Mobile menu
+export const MenuOverlay = styled.div`
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: ${props => props.show ? '.3' : '0'}
+    visibility: ${props => props.show ? 'visible' : 'hidden'}
+    transition: all ease .5s;
+`;
+
+export const MenuWrapper = styled.div`
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: calc(100% - 80px);
+    max-width: 450px;
+    background: #fff;
+    z-index: 100;
+    overflow-x: hidden;
+    text-align: center;
+    transform: ${props => props.show ? 'translateX(0)' : 'translateX(100%)'};
+    transition: all ease .5s;
+`;
+
+export const Section = styled.div`
+    padding: 20px 10px;
+    color: #000;
+    border-bottom: 1px solid ${getColor('darkgrey')};
+
+    > a {
+        color: inherit;
+        text-decoration: none;
+    }
+`;
+
+export const SectionHeadline = styled(Section)`
+    font-weight: bold;
+    background: ${getColor('lightgrey')}
 `;
