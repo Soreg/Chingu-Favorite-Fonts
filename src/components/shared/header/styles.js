@@ -11,11 +11,13 @@ export const Wrapper = styled.div`
     z-index: 40;
     width: 100%;
     height: 60px;
+    border-top: 1px solid ${getColor('grey')};
     border-bottom: 1px solid ${getColor('grey')};
     color: ${getColor('darkgrey')};
 
     @media (min-width: ${breakpoint('md')}) {
         position: relative;
+        border-top: none;
     }
 `;
 
@@ -123,7 +125,36 @@ export const MenuWrapper = styled.div`
     transition: all ease .5s;
 `;
 
+export const MenuCloseIcon = styled.div`
+    position: absolute;
+    top: 50%;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    transform: translate(-50%, -50%);
+
+    &:before, &:after {
+        content: "";
+        position: absolute;
+        height: 2px;
+        width: 20px;
+        background: ${getColor('darkgrey')};
+    }
+
+    &:before {
+        transform: rotate(45deg);
+    }
+
+    &:after {
+        transform: rotate(-45deg);
+    }
+`;
+
 export const Section = styled.div`
+    position: relative;
     padding: 20px 10px;
     color: #000;
     border-bottom: 1px solid ${getColor('darkgrey')};
