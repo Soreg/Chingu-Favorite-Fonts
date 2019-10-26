@@ -60,7 +60,7 @@ export const CardsList = styled.div`
 
 export const BackToTop = styled.div`
     position: fixed;
-    bottom: 10%;
+    bottom: 15%;
     right: 3%;
     width: 40px;
     height: 40px;
