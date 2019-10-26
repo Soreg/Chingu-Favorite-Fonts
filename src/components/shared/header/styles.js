@@ -60,7 +60,7 @@ export const LinksWrapper = styled.div`
 export const NavigationLink = styled(NavLink)`
     margin-right: 25px;
     text-decoration: none;
-    color: ${props => props.theme.darkgrey};
+    color: ${props => props.theme.header.fg};
 
     &:last-of-type {
         margin-right: 0;

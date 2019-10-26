@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import { breakpoint } from '../frontend-config';
 
 export const Container = styled.div`
+    background: ${props => props.theme.page.bg};
+    color: ${props => props.theme.page.fg};
 `;
 
 export const PageWrapper = styled.div`
