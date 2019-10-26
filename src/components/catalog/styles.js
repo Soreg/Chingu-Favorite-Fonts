@@ -12,12 +12,16 @@ export const NavbarWrapper = styled.div`
 `;
 
 export const NavSearchInput = styled.input`
-    width: 25%;
+    width: 30%;
     font-size: 18px;
     border: none;
     outline: 0;
     padding: 10px 0;
     border-right: 1px solid ${getColor('grey')};
+
+    @media (min-width: ${breakpoint('lg')}) {
+        width: 25%
+    }
 `;
 
 export const NavSampleTextInput = styled(NavSearchInput)`
