@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from "react-router-dom";
-import { MenuOverlay, MenuWrapper, SectionHeadline, Section } from './styles';
+import { MenuOverlay, MenuWrapper, SectionHeadline, Section, MenuCloseIcon } from './styles';
 
 class MobileMenu extends React.Component {
     constructor(props) {
@@ -23,7 +23,10 @@ class MobileMenu extends React.Component {
             <>
                 <MenuOverlay show={open} onClick={closeMenu} />
                 <MenuWrapper show={open}>
-                    <SectionHeadline>Navigation</SectionHeadline>
+                    <SectionHeadline>
+                        Navigation
+                        <MenuCloseIcon onClick={closeMenu} />
+                    </SectionHeadline>
                     <Section onClick={() => this.onLinkClick('/catalog')}>Catalog</Section>
                     <Section onClick={() => this.onLinkClick('/featured')}>Featured</Section>
                     <Section onClick={() => this.onLinkClick('/articles')}>Articles</Section>
