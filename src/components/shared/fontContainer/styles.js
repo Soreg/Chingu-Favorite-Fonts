@@ -1,23 +1,35 @@
 import styled from 'styled-components';
-import { getColor } from '../../../frontend-config';
+import { getColor, breakpoint } from '../../../frontend-config';
 
 export const Wrapper = styled.div`
     position: fixed;
-    width: 500px;
+    width: 300px;
     z-index: 20;
     bottom: 0;
-    right: 50px;
+    right: 50%;
     ${props => {
         switch(props.status) {
             case 'active':
-                return 'transform: translateY(calc(100% - 80px));'
+                return 'transform: translate(50%, calc(100% - 80px));'
             case 'open':
-                return 'transform: translateY(calc(0% - 40px));'
+                return 'transform: translate(50%, calc(0% - 40px));'
             default: 
-            return 'transform: translateY(calc(100% - 40px));'
+            return 'transform: translate(50%, calc(100% - 40px));'
         }
     }}
     transition: all ease .3s;
+
+    @media (min-width: ${breakpoint('sm')}) {
+        width: 400px;
+    }
+
+    @media (min-width: ${breakpoint('md')}) {
+        width: 500px;
+    }
+
+    @media (min-width: ${breakpoint('lg')}) {
+        right: 380px;
+    }
 `;
 
 export const Overlay = styled.div`

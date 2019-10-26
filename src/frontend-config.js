@@ -7,8 +7,20 @@ const colors = {
     orange: '#eb6e0e'
 }
 
+const sizesRaw = {
+    maxWidth: 1500,
+    sm: 576,
+    md: 768,
+    lg: 992,
+    xl: 1280,
+}
+
 const sizes = {
-    maxWidth: '1500px'
+    maxWidth: `${sizesRaw.maxWidth}px`,
+    sm: `${sizesRaw.sm}px`,
+    md: `${sizesRaw.md}px`,
+    lg: `${sizesRaw.lg}px`,
+    xl: `${sizesRaw.xl}px`,
 }
 
 const getColor = color => {
@@ -19,4 +31,12 @@ const getPageSize = size => {
     return sizes[size];
 }
 
-export { getColor, getPageSize };
+const breakpoint = size => {
+    return sizes[size];
+}
+
+const breakpointsRaw = size => {
+    return sizesRaw[size]
+}
+
+export { getColor, getPageSize, breakpoint, breakpointsRaw };

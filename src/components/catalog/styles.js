@@ -1,35 +1,71 @@
 import styled from 'styled-components';
-import { getColor } from '../../frontend-config';
+import { getColor, breakpoint } from '../../frontend-config';
 
 // Navbar
 export const NavbarWrapper = styled.div`
     display: flex;
-    align-items: center;
-    border: 1px solid ${getColor('grey')};
-    border-radius: 20px;
+    flex-direction: column;
     margin: 20px auto 40px;
-    padding: 0 30px;
+
+    @media (min-width: ${breakpoint('md')}) {
+        flex-direction: row;
+        padding: 0 30px;
+        border: 1px solid ${getColor('grey')};
+        border-radius: 20px;
+        align-items: center;
+    }
 `;
 
 export const NavSearchInput = styled.input`
-    width: 25%;
-    font-size: 18px;
-    border: none;
+    width: 30%;
+    font-size: 15px;
     outline: 0;
-    padding: 10px 0;
-    border-right: 1px solid ${getColor('grey')};
+    border: 1px solid ${getColor('grey')};
+    margin-bottom: 10px;
+    border-radius: 3px;
+    width: 100%;
+    padding: 10px 15px;
+
+    @media (min-width: ${breakpoint('md')}) {
+        font-size: 18px;
+        border: none;
+        border-right: 1px solid ${getColor('grey')};
+        border-radius: 0;
+        padding: 10px 0;
+        margin: 0;
+        width: 35%;
+    }
+
+    @media (min-width: ${breakpoint('lg')}) {
+        width: 25%
+    }
 `;
 
 export const NavSampleTextInput = styled(NavSearchInput)`
-    padding-left: 15px;
+    @media (min-width: ${breakpoint('md')}) {
+        padding-left: 15px;
+    }
+`;
+
+export const NavRightWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-self: stretch;
+    flex: 1;
 `;
 
 export const NavSelect = styled.select`
-    align-self: stretch;
-    border: none;
+    align-self: flex-start;
     outline: 0;
-    padding-left: 10px;
+    padding: 5px 2px;
     cursor: pointer;
+
+    @media (min-width: ${breakpoint('md')}) {
+        align-self: stretch;
+        border: none;
+        padding-left: 10px;
+    }
 `;
 
 export const NavReset = styled.div`
@@ -39,7 +75,11 @@ export const NavReset = styled.div`
     justify-content: flex-end;
     padding-left: 10px;
     margin-left: 10px;
-    border-left: 1px solid ${getColor('grey')};
+    border-left: none;
+
+    @media (min-width: ${breakpoint('md')}) {
+        border-left: 1px solid ${getColor('grey')};
+    }
 
     svg {
         cursor: pointer;
@@ -56,7 +96,7 @@ export const CardsList = styled.div`
 
 export const BackToTop = styled.div`
     position: fixed;
-    bottom: 10%;
+    bottom: 15%;
     right: 3%;
     width: 40px;
     height: 40px;
@@ -83,10 +123,22 @@ export const BackToTop = styled.div`
 export const CardWrapper = styled.div`
     align-self: stretch;
     box-sizing: border-box;
-    width: 25%;
+    width: 100%;
     padding: 0 25px;
     margin-bottom: 30px;
     min-height: 250px;
+
+    @media (min-width: ${breakpoint('md')}) {
+        width: 50%
+    }
+
+    @media (min-width: ${breakpoint('lg')}) {
+        width: 33.3%
+    }
+
+    @media (min-width: ${breakpoint('xl')}) {
+        width: 25%
+    }
 `;
 
 export const CardInnerWrapper = styled.div`
