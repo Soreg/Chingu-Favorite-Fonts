@@ -61,11 +61,22 @@ export const BackToTop = styled.div`
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: black;
+    background: ${getColor('primary')};
     cursor: pointer;
-    opacity: ${props => props.show ? '1' : '0'}
+    opacity: ${props => props.show ? '.8' : '0'}
     visibility: ${props => props.show ? 'visible' : 'hidden'}
     transition: all ease .3s;
+
+    &:before {
+        content:"";
+        border-style: solid;
+        border-width: 8px 15px 8px 0;
+        border-color: transparent #fff transparent transparent;
+        position: absolute;
+        transform: translate(-50%, -50%) rotate(90deg);
+        left: 50%;
+        top: 45%;
+    }
 `;
 
 // Card
