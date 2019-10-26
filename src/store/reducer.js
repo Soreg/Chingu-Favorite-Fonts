@@ -1,11 +1,13 @@
   
 export const initialState = {
-    selectedFonts: JSON.parse(localStorage.getItem('favoriteFonts-fonts')) || []
+    selectedFonts: JSON.parse(localStorage.getItem('favoriteFonts-fonts')) || [],
+    theme: 'light'
 };
 
 export const ADD_FONT = 'ADD_FONT';
 export const REMOVE_FONT = 'REMOVE_FONT';
 export const CLEAR_FONTS = 'CLEAR_FONTS';
+export const CHANGE_THEME = 'CHANGE_THEME';
 
 export const actions = {};
 
@@ -22,6 +24,11 @@ actions[REMOVE_FONT] = (state, action) => ({
 actions[CLEAR_FONTS] = state => ({
     ...state,
     selectedFonts: []
+});
+
+actions[CHANGE_THEME] = (state, action) => ({
+    ...state,
+    theme: action.theme
 });
 
 export default function reducer(state = initialState, action) {

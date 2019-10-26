@@ -1,16 +1,18 @@
 import styled from 'styled-components';
-import { getColor, breakpoint } from '../../frontend-config';
+import { breakpoint } from '../../frontend-config';
 
 // Navbar
 export const NavbarWrapper = styled.div`
     display: flex;
     flex-direction: column;
     margin: 20px auto 40px;
+    background: ${props => props.theme.fontNavbar.bg};
+    padding: 10px;
 
     @media (min-width: ${breakpoint('md')}) {
         flex-direction: row;
         padding: 0 30px;
-        border: 1px solid ${getColor('grey')};
+        border: 1px solid ${props => props.theme.fontNavbar.border};
         border-radius: 20px;
         align-items: center;
     }
@@ -20,16 +22,22 @@ export const NavSearchInput = styled.input`
     width: 30%;
     font-size: 15px;
     outline: 0;
-    border: 1px solid ${getColor('grey')};
+    border: 1px solid ${props => props.theme.fontNavbar.border};
     margin-bottom: 10px;
     border-radius: 3px;
     width: 100%;
     padding: 10px 15px;
+    background: ${props => props.theme.fontNavbar.bg};
+    color: ${props => props.theme.fontNavbar.fg};
+
+    &::placeholder {
+        color: inherit;
+    }
 
     @media (min-width: ${breakpoint('md')}) {
         font-size: 18px;
         border: none;
-        border-right: 1px solid ${getColor('grey')};
+        border-right: 1px solid ${props => props.theme.fontNavbar.border};
         border-radius: 0;
         padding: 10px 0;
         margin: 0;
@@ -60,6 +68,8 @@ export const NavSelect = styled.select`
     outline: 0;
     padding: 5px 2px;
     cursor: pointer;
+    background: ${props => props.theme.fontNavbar.bg};
+    color: ${props => props.theme.fontNavbar.fgSelect};
 
     @media (min-width: ${breakpoint('md')}) {
         align-self: stretch;
@@ -68,22 +78,46 @@ export const NavSelect = styled.select`
     }
 `;
 
+export const NavThemeWrapper = styled.div`
+    display: flex;
+    align-items: center;
+
+    @media (min-width: ${breakpoint('md')}) {
+        align-self: stretch;
+        border-left: 1px solid ${props => props.theme.fontNavbar.border};
+        padding-left: 10px;
+    }
+`;
+
+export const NavThemeButton = styled.div`
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 8px;
+    background: ${props => props.dark ? '#000' : '#fff'}
+    border: 1px solid ${props => props.dark ? '#fff' : '#000'}
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+`;
+
 export const NavReset = styled.div`
     display: flex;
     align-self: stretch;
-    flex: 1;
     justify-content: flex-end;
     padding-left: 10px;
     margin-left: 10px;
     border-left: none;
 
     @media (min-width: ${breakpoint('md')}) {
-        border-left: 1px solid ${getColor('grey')};
+        border-left: 1px solid ${props => props.theme.fontNavbar.border};
+        flex: 1;
     }
 
     svg {
         cursor: pointer;
-        fill: ${getColor('darkgrey')};
+        fill: ${props => props.theme.fontNavbar.resetIcon};
     }
 `;
 
@@ -101,7 +135,7 @@ export const BackToTop = styled.div`
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: ${getColor('primary')};
+    background: ${props => props.theme.primary};
     cursor: pointer;
     opacity: ${props => props.show ? '.8' : '0'}
     visibility: ${props => props.show ? 'visible' : 'hidden'}
@@ -121,28 +155,31 @@ export const BackToTop = styled.div`
 
 // Card
 export const CardWrapper = styled.div`
+    display: flex;
     align-self: stretch;
     box-sizing: border-box;
     width: 100%;
-    padding: 0 25px;
-    margin-bottom: 30px;
+    padding: 10px 25px 30px;
     min-height: 250px;
+    background: ${props => props.theme.catalogPage.bgCard};
+    margin-bottom: 20px;
 
     @media (min-width: ${breakpoint('md')}) {
-        width: 50%
+        margin: 5px;
+        width: calc(50% - 10px);
     }
 
     @media (min-width: ${breakpoint('lg')}) {
-        width: 33.3%
+        width: calc(33.3% - 10px);
     }
 
     @media (min-width: ${breakpoint('xl')}) {
-        width: 25%
+        width: calc(25% - 10px);
     }
 `;
 
 export const CardInnerWrapper = styled.div`
-    border-top: 1px solid #000;
+    border-top: 1px solid ${props => props.theme.catalogPage.topLine};;
 `;
 
 export const CardTopContainer = styled.div`
@@ -168,8 +205,8 @@ export const CardAddButton = styled.div`
     height: 20px;
     border-radius: 50%;
     color: white;
-    background: ${getColor('primary')}
-    border: 1px solid ${getColor('primary')};
+    background: ${props => props.theme.primary};
+    border: 1px solid ${props => props.theme.primary};
     cursor: pointer;
 `;
 
