@@ -4,10 +4,19 @@ import { getColor, breakpoint } from '../../../frontend-config';
 
 // Header
 export const Wrapper = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    z-index: 40;
     width: 100%;
-    padding: 20px 0;
+    height: 60px;
     border-bottom: 1px solid ${getColor('grey')};
     color: ${getColor('darkgrey')};
+
+    @media (min-width: ${breakpoint('md')}) {
+        position: relative;
+    }
 `;
 
 export const InnerWrapper = styled.div`
@@ -17,6 +26,7 @@ export const InnerWrapper = styled.div`
     justify-content: center;
     padding: 0 60px;
     margin: 0 auto;
+    height: 100%;
 
     @media (min-width: ${breakpoint('md')}) {
         justify-content: space-between;

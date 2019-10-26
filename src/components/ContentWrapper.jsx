@@ -11,7 +11,11 @@ export const Container = styled.div`
 export const PageWrapper = styled.div`
     max-width: ${breakpoint('maxWidth')};
     margin: 0 auto;
-    padding: 0 80px;
+    padding: 60px 80px 0;
+
+    @media (min-width: ${breakpoint('md')}) {
+        padding: 0 80px;
+    }
 `;
 
 const ContentWrapper = props => {
