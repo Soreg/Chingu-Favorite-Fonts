@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { getColor, breakpoint } from '../../../frontend-config';
+import { breakpoint } from '../../../frontend-config';
 
 export const Wrapper = styled.div`
     position: fixed;
@@ -50,13 +50,13 @@ export const TopContainer = styled.div`
     align-items: center;
     padding-left: 20px;
     height: 40px;
-    background: ${getColor('dark')};
+    background: ${props => props.theme.dark};
     color: #fff;
     font-size: 15px;
     cursor: pointer;
 
     span {
-        color: ${getColor('orange')};
+        color: ${props => props.theme.orange};
         margin-right: 5px;
         font-weight: bold;
     }
@@ -82,14 +82,14 @@ export const ClearAllButton = styled.div`
     align-items: center;
     margin-left: 5px;
     cursor: pointer;
-    color: ${getColor('primary')};
+    color: ${props => props.theme.primary};
     font-size: 14px;
     padding: 10px 8px;
     transition: all ease .3s;
     font-weight: bold;
 
     &:hover {
-        background:${getColor('lightgrey')}
+        background: ${props => props.theme.lightgrey};
     }
 `;
 
@@ -101,7 +101,7 @@ export const LinkButtonWrapper = styled.div`
 
 export const LinkButton = styled.div`
     font-size: 13px;
-    color: ${getColor('primary')};
+    color: ${props => props.theme.primary};
     font-weight: bold;
     text-transform: uppercase;
     opacity: ${props => props.active ? '1' : '0.7'};
@@ -116,21 +116,21 @@ export const LinkButton = styled.div`
 export const InnerHeadline = styled.div`
     font-size: 15px;
     font-weight: bold;
-    color: ${getColor('dark')}
+    color: ${props => props.theme.dark};
     ${props => !props.noMargin && `margin-bottom: 10px`};
 `;
 
 export const InnerDescription = styled.div`
     font-size: 15px;
-    color: ${getColor('darkgrey')}
+    color: ${props => props.theme.darkgrey};
 `;
 
 export const CodeContainer = styled.div`
     box-sizing: border-box;
     margin-top: 15px;
     padding: 10px;
-    background: ${getColor('lightgrey')};
-    color: ${getColor('darkgrey')}
+    background: ${props => props.theme.lightgrey};
+    color: ${props => props.theme.darkgrey};
     word-break: break-all;
     font-size: 14px;
 
@@ -146,6 +146,6 @@ export const CodeSnippetLine = styled.div`
 export const Divider = styled.div`
     width: 100%;
     height: 2px;
-    background: ${getColor('lightgrey')};
+    background: ${props => props.theme.lightgrey};
     margin: 20px auto;
 `;

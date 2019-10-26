@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from "react-router-dom";
-import { getColor, breakpoint } from '../../../frontend-config';
+import { breakpoint } from '../../../frontend-config';
 
 // Header
 export const Wrapper = styled.div`
@@ -11,9 +11,9 @@ export const Wrapper = styled.div`
     z-index: 40;
     width: 100%;
     height: 60px;
-    border-top: 1px solid ${getColor('grey')};
-    border-bottom: 1px solid ${getColor('grey')};
-    color: ${getColor('darkgrey')};
+    border-top: 1px solid ${props => props.theme.grey};
+    border-bottom: 1px solid ${props => props.theme.grey};
+    color: ${props => props.theme.darkgrey};
 
     @media (min-width: ${breakpoint('md')}) {
         position: relative;
@@ -37,7 +37,7 @@ export const InnerWrapper = styled.div`
 
 export const Logo = styled(NavLink)`
     font-size: 21px;
-    color: ${getColor('darkgrey')};
+    color: ${props => props.theme.darkgrey};
     text-decoration: none;
 
     span {
@@ -60,14 +60,14 @@ export const LinksWrapper = styled.div`
 export const NavigationLink = styled(NavLink)`
     margin-right: 25px;
     text-decoration: none;
-    color: ${getColor('darkgrey')};
+    color: ${props => props.theme.darkgrey};
 
     &:last-of-type {
         margin-right: 0;
     }
 
     &.active {
-        color: ${getColor('primary')};
+        color: ${props => props.theme.primary};
     }
 `;
 
@@ -77,7 +77,7 @@ export const MenuButton = styled.div`
     right: 50px;
     width: 20px;
     height: 2px;
-    background: ${getColor('darkgrey')};
+    background: ${props => props.theme.darkgrey};
 
     &:before, &:after {
         content: "";
@@ -141,7 +141,7 @@ export const MenuCloseIcon = styled.div`
         position: absolute;
         height: 2px;
         width: 20px;
-        background: ${getColor('darkgrey')};
+        background: ${props => props.theme.darkgrey};
     }
 
     &:before {
@@ -157,7 +157,7 @@ export const Section = styled.div`
     position: relative;
     padding: 20px 10px;
     color: #000;
-    border-bottom: 1px solid ${getColor('darkgrey')};
+    border-bottom: 1px solid ${props => props.theme.darkgrey};
 
     > a {
         color: inherit;
@@ -167,5 +167,5 @@ export const Section = styled.div`
 
 export const SectionHeadline = styled(Section)`
     font-weight: bold;
-    background: ${getColor('lightgrey')}
+    background: ${props => props.theme.lightgrey};
 `;

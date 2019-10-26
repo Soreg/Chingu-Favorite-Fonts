@@ -1,12 +1,3 @@
-const colors = {
-    primary: '#F95759',
-    lightgrey: '#EDEDED',
-    grey: '#CCC',
-    darkgrey: '#666666',
-    dark: '#262626',
-    orange: '#eb6e0e'
-}
-
 const sizesRaw = {
     maxWidth: 1500,
     sm: 576,
@@ -23,10 +14,6 @@ const sizes = {
     xl: `${sizesRaw.xl}px`,
 }
 
-const getColor = color => {
-    return colors[color];
-}
-
 const getPageSize = size => {
     return sizes[size];
 }
@@ -39,4 +26,4 @@ const breakpointsRaw = size => {
     return sizesRaw[size]
 }
 
-export { getColor, getPageSize, breakpoint, breakpointsRaw };
+export { getPageSize, breakpoint, breakpointsRaw };

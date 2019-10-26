@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { getColor, breakpoint } from '../../frontend-config';
+import { breakpoint } from '../../frontend-config';
 
 // Navbar
 export const NavbarWrapper = styled.div`
@@ -10,7 +10,7 @@ export const NavbarWrapper = styled.div`
     @media (min-width: ${breakpoint('md')}) {
         flex-direction: row;
         padding: 0 30px;
-        border: 1px solid ${getColor('grey')};
+        border: 1px solid ${props => props.theme.grey};
         border-radius: 20px;
         align-items: center;
     }
@@ -20,7 +20,7 @@ export const NavSearchInput = styled.input`
     width: 30%;
     font-size: 15px;
     outline: 0;
-    border: 1px solid ${getColor('grey')};
+    border: 1px solid ${props => props.theme.grey};
     margin-bottom: 10px;
     border-radius: 3px;
     width: 100%;
@@ -29,7 +29,7 @@ export const NavSearchInput = styled.input`
     @media (min-width: ${breakpoint('md')}) {
         font-size: 18px;
         border: none;
-        border-right: 1px solid ${getColor('grey')};
+        border-right: 1px solid ${props => props.theme.grey};
         border-radius: 0;
         padding: 10px 0;
         margin: 0;
@@ -74,7 +74,7 @@ export const NavThemeWrapper = styled.div`
 
     @media (min-width: ${breakpoint('md')}) {
         align-self: stretch;
-        border-left: 1px solid ${getColor('grey')};
+        border-left: 1px solid ${props => props.theme.grey};
         padding-left: 10px;
     }
 `;
@@ -101,13 +101,13 @@ export const NavReset = styled.div`
     border-left: none;
 
     @media (min-width: ${breakpoint('md')}) {
-        border-left: 1px solid ${getColor('grey')};
+        border-left: 1px solid ${props => props.theme.grey};
         flex: 1;
     }
 
     svg {
         cursor: pointer;
-        fill: ${getColor('darkgrey')};
+        fill: ${props => props.theme.darkgrey};
     }
 `;
 
@@ -125,7 +125,7 @@ export const BackToTop = styled.div`
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: ${getColor('primary')};
+    background: ${props => props.theme.primary};
     cursor: pointer;
     opacity: ${props => props.show ? '.8' : '0'}
     visibility: ${props => props.show ? 'visible' : 'hidden'}
@@ -192,8 +192,8 @@ export const CardAddButton = styled.div`
     height: 20px;
     border-radius: 50%;
     color: white;
-    background: ${getColor('primary')}
-    border: 1px solid ${getColor('primary')};
+    background: ${props => props.theme.primary};
+    border: 1px solid ${props => props.theme.primary};
     cursor: pointer;
 `;
 
