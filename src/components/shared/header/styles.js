@@ -92,6 +92,7 @@ export const MenuOverlay = styled.div`
     top: 0;
     left: 0;
     background: #000;
+    z-index: 50;
     opacity: ${props => props.show ? '.3' : '0'}
     visibility: ${props => props.show ? 'visible' : 'hidden'}
     transition: all ease .5s;
