@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import { debounce } from 'debounce';
 import Navbar from './navbar.jsx';
 import FontCard from './FontCard.jsx';
-import { CardsList } from "./styles.js";
+import { CardsList, BackToTop } from "./styles.js";
 
 const INITIAL_STATE = {
     fontsAmount: 0,
     searchString: '',
     previewString: '',
-    fontSize: '32px'
+    fontSize: '32px',
+    displayToTop: false
 }
 
 
@@ -28,11 +29,14 @@ export default class Catalog extends Component {
         this.doSearch = debounce(this.doSearch.bind(this), 300)
     }
 
+    componentDidMount() {
+        window.addEventListener('scroll', this.onScroll, true);
+    }
+
     componentDidUpdate(prevProps) {
         const { fonts } = this.props;
         if (fonts && prevProps.fonts === null) {
             this.getNextFonts();
-            window.addEventListener('scroll', this.onScroll, true);
         }
     }
 
@@ -41,11 +45,22 @@ export default class Catalog extends Component {
     }
 
     onScroll() {
+        const { displayToTop } = this.state;
         const viewportHeight = window.pageYOffset + window.innerHeight
         const bodyHeight = document.getElementById('app').offsetHeight;
 
         if(viewportHeight >= bodyHeight - 400) {
             this.getNextFonts();
+        }
+
+        if (window.pageYOffset >= 400 && !displayToTop) {
+            this.setState({
+                displayToTop: true
+            })
+        } else if(window.pageYOffset < 400 && displayToTop) {
+            this.setState({
+                displayToTop: false
+            })
         }
     }
 
@@ -124,8 +139,12 @@ export default class Catalog extends Component {
         }
     }
 
+    scrollToTop() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
     render() {
-        const { searchString, previewString, fontSize, fonts } = this.state;
+        const { searchString, previewString, fontSize, fonts, displayToTop } = this.state;
         return (
             <>
                 <Navbar
@@ -141,6 +160,7 @@ export default class Catalog extends Component {
                     {fonts && fonts.map(font => (
                         <FontCard key={font.family} font={font} text={previewString} fontSize={fontSize} />
                     ))}
+                    <BackToTop show={displayToTop} onClick={this.scrollToTop} />
                 </CardsList>
             </>
         )
