@@ -54,6 +54,20 @@ export const CardsList = styled.div`
     flex-wrap: wrap;
 `;
 
+export const BackToTop = styled.div`
+    position: fixed;
+    bottom: 10%;
+    right: 3%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: black;
+    cursor: pointer;
+    opacity: ${props => props.show ? '1' : '0'}
+    visibility: ${props => props.show ? 'visible' : 'hidden'}
+    transition: all ease .3s;
+`;
+
 // Card
 export const CardWrapper = styled.div`
     align-self: stretch;
