@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { getColor } from '../../frontend-config';
+import { getColor, breakpoint } from '../../frontend-config';
 
 // Navbar
 export const NavbarWrapper = styled.div`
@@ -83,10 +83,22 @@ export const BackToTop = styled.div`
 export const CardWrapper = styled.div`
     align-self: stretch;
     box-sizing: border-box;
-    width: 25%;
+    width: 100%;
     padding: 0 25px;
     margin-bottom: 30px;
     min-height: 250px;
+
+    @media (min-width: ${breakpoint('md')}) {
+        width: 50%
+    }
+
+    @media (min-width: ${breakpoint('lg')}) {
+        width: 33.3%
+    }
+
+    @media (min-width: ${breakpoint('xl')}) {
+        width: 25%
+    }
 `;
 
 export const CardInnerWrapper = styled.div`
