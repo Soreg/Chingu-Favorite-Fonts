@@ -9,6 +9,7 @@ const INITIAL_STATE = {
     searchString: '',
     previewString: '',
     fontSize: '32px',
+    listMode: false,
     displayToTop: false
 }
 
@@ -24,6 +25,7 @@ export default class Catalog extends Component {
         this.onSearchTextChange = this.onSearchTextChange.bind(this);
         this.onPreviewTextChange = this.onPreviewTextChange.bind(this);
         this.onFontSizeChange = this.onFontSizeChange.bind(this);
+        this.onListModeChange = this.onListModeChange.bind(this);
         this.onReset = this.onReset.bind(this);
         this.onScroll = this.onScroll.bind(this);
         this.doSearch = debounce(this.doSearch.bind(this), 300)
@@ -115,6 +117,12 @@ export default class Catalog extends Component {
         })
     }
 
+    onListModeChange() {
+        this.setState(prevState => ({
+            listMode: !prevState.listMode
+        }))
+    }
+
     onReset() {
         const { fonts } = this.props;
         const newFonts = fonts.slice(0, this.fontsAmountPerTime);
@@ -149,21 +157,23 @@ export default class Catalog extends Component {
     }
 
     render() {
-        const { searchString, previewString, fontSize, fonts, displayToTop } = this.state;
+        const { searchString, previewString, fontSize, fonts, displayToTop, listMode } = this.state;
         return (
             <>
                 <Navbar
                     searchString={searchString}
                     previewString={previewString}
                     fontSize={fontSize}
+                    listMode={listMode}
                     onSearch={this.onSearchTextChange}
                     onPreviewChange={this.onPreviewTextChange}
                     onFontSizeChange={this.onFontSizeChange}
                     onReset={this.onReset}
+                    onListModeChange={this.onListModeChange}
                 />
                 <CardsList>
                     {fonts && fonts.map(font => (
-                        <FontCard key={font.family} font={font} text={previewString} fontSize={fontSize} />
+                        <FontCard key={font.family} font={font} text={previewString} fontSize={fontSize} listMode={listMode} />
                     ))}
                     <BackToTop show={displayToTop} onClick={this.scrollToTop} />
                 </CardsList>
