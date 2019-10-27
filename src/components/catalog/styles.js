@@ -103,19 +103,20 @@ export const NavThemeButton = styled.div`
 `;
 
 export const NavDisplayWrapper = styled.div`
-    align-self: stretch;
-    display: flex;
-    align-items: center;
+    display: none;
+
+    @media (min-width: ${breakpoint('md')}) {
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+        border-left: 1px solid ${props => props.theme.fontNavbar.border};
+        padding-left: 10px;
+    }
 
     svg {
         cursor: pointer;
         fill: ${props => props.theme.fontNavbar.fgSelect};
-    }
-
-    @media (min-width: ${breakpoint('md')}) {
-        margin-left: 10px;
-        border-left: 1px solid ${props => props.theme.fontNavbar.border};
-        padding-left: 10px;
     }
 `;
 
