@@ -1,18 +1,22 @@
 import React from "react";
 import { useDispatch } from 'react-redux';
 import { changeTheme } from '../../store/actions';
-import { NavbarWrapper, NavSearchInput, NavSampleTextInput, NavSelect, NavReset, NavRightWrapper, NavThemeWrapper, NavThemeButton } from './styles';
+import { NavbarWrapper, NavSearchInput, NavSampleTextInput, NavSelect, NavReset, NavRightWrapper, NavThemeWrapper, NavThemeButton, NavDisplayWrapper, GridImg, ListImg, TestString } from './styles';
 import ResetIcon from '../../assets/icons/reset.svg';
+import ListIcon from '../../assets/icons/view_list.svg';
+import GridIcon from '../../assets/icons/view_grid.svg';
 
 const Navbar = props => {
     const {
         searchString,
         previewString,
         fontSize,
+        listMode,
         onSearch,
         onPreviewChange,
         onFontSizeChange,
-        onReset
+        onReset,
+        onListModeChange
     } = props;
 
     const fontSizes = [
@@ -43,6 +47,13 @@ const Navbar = props => {
                     <NavThemeButton onClick={() => onThemeChange('light')} />
                     <NavThemeButton dark onClick={() => onThemeChange('dark')} />
                 </NavThemeWrapper>
+                <NavDisplayWrapper>
+                    {listMode ? (
+                        <GridIcon height={25} width={30} onClick={onListModeChange} />
+                    ) : (
+                        <ListIcon height={30} width={30} onClick={onListModeChange} />
+                    )}
+                </NavDisplayWrapper>
                 <NavReset>
                     <ResetIcon width={25} onClick={onReset} />
                 </NavReset>

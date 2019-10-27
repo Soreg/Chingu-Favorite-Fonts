@@ -102,6 +102,20 @@ export const NavThemeButton = styled.div`
     }
 `;
 
+export const NavDisplayWrapper = styled.div`
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    margin-left: 10px;
+    border-left: 1px solid ${props => props.theme.fontNavbar.border};
+
+    svg {
+        cursor: pointer;
+        fill: ${props => props.theme.fontNavbar.fgSelect};
+    }
+`;
+
 export const NavReset = styled.div`
     display: flex;
     align-self: stretch;
@@ -159,27 +173,38 @@ export const CardWrapper = styled.div`
     align-self: stretch;
     box-sizing: border-box;
     width: 100%;
-    padding: 10px 25px 30px;
-    min-height: 250px;
     background: ${props => props.theme.catalogPage.bgCard};
     margin-bottom: 20px;
 
-    @media (min-width: ${breakpoint('md')}) {
-        margin: 5px;
-        width: calc(50% - 10px);
-    }
+    ${props => !props.fullWidth ? (
+        `
+        min-height: 250px;
+        padding: 10px 25px 30px;
 
-    @media (min-width: ${breakpoint('lg')}) {
-        width: calc(33.3% - 10px);
-    }
-
-    @media (min-width: ${breakpoint('xl')}) {
-        width: calc(25% - 10px);
-    }
+        @media (min-width: ${breakpoint('md')}) {
+            margin: 5px;
+            width: calc(50% - 10px);
+        }
+    
+        @media (min-width: ${breakpoint('lg')}) {
+            width: calc(33.3% - 10px);
+        }
+    
+        @media (min-width: ${breakpoint('xl')}) {
+            width: calc(25% - 10px);
+        }
+        `
+    ) : (
+        `
+        min-height: 150px;
+        padding: 10px 25px;
+        `
+    )}
 `;
 
 export const CardInnerWrapper = styled.div`
-    border-top: 1px solid ${props => props.theme.catalogPage.topLine};;
+    border-top: 1px solid ${props => props.theme.catalogPage.topLine};
+    flex: 1;
 `;
 
 export const CardTopContainer = styled.div`

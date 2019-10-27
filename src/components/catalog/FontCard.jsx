@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CardWrapper, CardInnerWrapper, CardTopContainer, CardHeadline, CardPreviewText, CardAddButton } from "./styles.js";
 
 const FontCard = props => {
-    const { font, text, fontSize } = props;
+    const { font, text, fontSize, listMode } = props;
 
     const dispatch = useDispatch();
     const selectedFonts = useSelector(state => state.selectedFonts);
@@ -22,7 +22,7 @@ const FontCard = props => {
     }
 
     return (
-        <CardWrapper>
+        <CardWrapper fullWidth={listMode}>
             <CardInnerWrapper>
                 <CardTopContainer>
                     <CardHeadline>{font.family}</CardHeadline>
