@@ -7,7 +7,7 @@ This project was made for the Chingu Voyage 13 pre-work. The app uses data from 
 ___
 
 ## Features
-"Short" point-list over core features
+bullet-list over core features
 * Catalog page (frontpage) which fetches most popular google fonts
 * Navbar with filters (includes: Search, preview text, font size, light/dark mode, grid/list mode)
 * Reset-button for filters
@@ -26,4 +26,3 @@ Step-by-step guide to running this project locally
 2. cd into the project: `cd ./Chingu-Favorite-Fonts`
 3. Install dependencies: `npm install`
 4. Run the project: `npm run dev`
-___
